@@ -86,6 +86,7 @@ group :production do
   gem "rails_12factor"
   gem "pg", "~> 0.18.1", :platforms => [:mri, :mingw, :x64_mingw]
   gem "puma"
+  gem "acts_as_list"
 end
 
 group :development do
