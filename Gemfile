@@ -87,6 +87,8 @@ group :production do
   gem "pg", "~> 0.18.1", :platforms => [:mri, :mingw, :x64_mingw]
   gem "puma"
   gem "acts_as_list"
+  gem "redmine_crm"
+  gem "vcard", "~> 0.2.8"
 end
 
 group :development do
