@@ -225,6 +225,9 @@ production:
         authentication: :login        
         user_name: <%= ENV['SENDGRID_USERNAME'] %>
         password: <%= ENV['SENDGRID_PASSWORD'] %>
+      wiki_encryptor:
+        key: <%= ENV['ENCRYPTION_KEY'] %>
+        algorithm: <%= ENV['ENCRYPTION_ALG'] %>
 
 # specific configuration options for development environment
 # that overrides the default ones
