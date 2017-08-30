@@ -24,7 +24,7 @@ gem "ffi", "1.9.14", :platforms => :mingw if RUBY_VERSION < "2.0"
 gem "rails-html-sanitizer", ">= 1.0.3"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', :platforms => [:mingw, :x64_mingw, :mswin]
+gem 'tzinfo-data', :platforms => [:mri, :mingw, :x64_mingw, :mswin]
 gem "rbpdf", "~> 1.19.2"
 
 # Optional gem for LDAP authentication
