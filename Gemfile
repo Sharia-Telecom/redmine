@@ -89,6 +89,7 @@ group :production do
   gem "acts_as_list"
   gem "redmine_crm"
   gem "vcard", "~> 0.2.8"
+  gem "redmine_extensions" unless Dir.exist?(File.expand_path('../../easyproject', __FILE__))
 end
 
 group :development do
