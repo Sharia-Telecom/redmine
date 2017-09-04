@@ -1,0 +1,14 @@
+# english strings
+label_enable_env_auth: enable env authentication
+label_server_env_var: name of server environment variable
+label_default: default
+label_lookup_mode: local user lookup mode
+label_login_name: login name
+label_email_address: email address
+login_envauth_title: sign in via env-auth
+label_enable_auto_registration: automatic registration
+label_autoregister: registration
+error_autoregistration_disabled: automatic registration is disabled
+error_remote_user_unset: username is not provided
+error_unknown_user: user was not found in the database
+label_keep_sessions: keep redmine sessions open after env authentication lost (dangerous!)

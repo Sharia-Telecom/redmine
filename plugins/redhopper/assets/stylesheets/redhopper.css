@@ -1,0 +1,115 @@
+/* Redhopper - Kanban boards for Redmine, inspired by Jira Agile (formerly known as
+ * Greenhopper), but following its own path.
+ * Copyright (C) 2015-2017 infoPiiaf <contact@infopiiaf.fr>
+ *
+ * This file is part of Redhopper.
+ *
+ * Redhopper is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * Redhopper is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Redhopper.  If not, see <http://www.gnu.org/licenses/>.
+ */
+.KanbanBoard {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  overflow: scroll;
+  text-align: center; }
+  .KanbanBoard-column {
+    margin: 0 1em;
+    /* width property is ignored in flexbox */
+    max-width: 20em;
+    min-width: 20em; }
+  .KanbanBoard ol, .KanbanBoard ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+
+.Column-dropzone {
+  background-color: transparent;
+  border: 2px dashed transparent;
+  border-radius: 5px;
+  height: 1em; }
+  .Column-dropzone[dropzone=move] {
+    border-color: lightgray; }
+  .Column-dropzone.dragover {
+    background-color: lightgray; }
+
+.Kanban {
+  margin: 0; }
+  .Kanban table {
+    display: block;
+    width: 100%; }
+  .Kanban tbody {
+    display: block; }
+  .Kanban tr {
+    margin: 0;
+    padding: 0;
+    background-color: #ededed;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 #545454;
+    display: block; }
+    .Kanban tr.highlight_danger {
+      background-color: #f5aeae; }
+    .Kanban tr.highlight_warning {
+      background-color: lightgoldenrodyellow; }
+  .Kanban td {
+    margin: 0;
+    padding: 0;
+    display: block; }
+    .Kanban td:after {
+      content: "";
+      display: block;
+      clear: both; }
+  .Kanban input[type=checkbox] {
+    float: left;
+    margin: 0 0 1em; }
+  .Kanban .unsortable, .Kanban .sortable {
+    float: right; }
+  .Kanban p {
+    clear: both;
+    margin: 0 0 1em; }
+    .Kanban p.blocker {
+      margin: 0.5em 1em; }
+      .Kanban p.blocker span {
+        text-decoration: underline dashed; }
+  .Kanban .issue-id {
+    float: left;
+    margin-left: 0.2em; }
+  .Kanban .issue-due-before {
+    float: left; }
+    .Kanban .issue-due-before.overdue {
+      color: red;
+      font-weight: bold; }
+  .Kanban .meta-data {
+    float: right; }
+    .Kanban .meta-data span {
+      margin: 0 0 0 1em; }
+      .Kanban .meta-data span.icon-user img.gravatar {
+        width: 32px;
+        height: 32px; }
+
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element; }
+
+.icon-exclamation {
+  background-image: url(../../../images/exclamation.png); }
+
+/*# sourceMappingURL=redhopper.css.map */

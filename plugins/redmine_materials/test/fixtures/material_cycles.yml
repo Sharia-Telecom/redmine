@@ -1,0 +1,31 @@
+material_cycle_one:
+    id: 1
+    stage: 0
+    event_type: '000'
+    material_id: 1
+    project_id: 1
+    purpose: 0
+
+material_cycle_two:
+    id: 2
+    stage: 1
+    event_type: '100'
+    material_id: 1
+    project_id: 1
+    purpose: 0
+        
+material_cycle_three:
+    id: 3
+    stage: 1
+    event_type: 2
+    material_id: 1
+    project_id: 1
+    purpose: 1
+    
+material_cycle_forth:
+    id: 4
+    stage: 9
+    event_type: 102
+    material_id: 3
+    project_id: 3
+    purpose: 3

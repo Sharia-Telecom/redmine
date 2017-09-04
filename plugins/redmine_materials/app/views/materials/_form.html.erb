@@ -1,0 +1,51 @@
+<%= error_messages_for 'material' %>
+
+<div class="box tabular attributes">
+  <div class="splitcontentleft">
+    <p><%= f.text_field :inner_code, :label => :field_inner_code, :required => true %></p>
+    <p><%= f.text_field :name, :label => :field_material_name, :required => true %></p>
+    <p class="category"><%= f.select :category_id, material_category_tree_options_for_select(material_categories_for_select, :selected => @material.category), :label => l(:field_category), :required => false, :include_blank => true %></p>
+    <p id="parent_material"><%= f.text_field :parent_material_id, :size => 25 %></p>
+    <%= javascript_tag "observeAutocompleteField('material_parent_material_id', '#{escape_javascript auto_complete_materials_path(:project_id => @project)}')" %>
+    <p><%= f.text_field :brand, :label => :field_brand %></p>
+    <p><%= f.text_field :amount, :label => l(:field_amount), :size => 10 %></p>
+    <p><%= f.text_field :original_value, :label => l(:field_original_value), :size => 10 %></p>
+    <p><%= f.text_field :current_value, :label => l(:field_current_value), :size => 10 %></p>
+    <p class="object-select"><%= f.select :status, collection_for_status_select, :include_blank => true, :label => l(:field_status) %></p>
+    <p class="object-select"><%= f.select :property, collection_for_property_select, :include_blank => true, :label => l(:field_property) %></p>
+    <p><%= f.text_field :device_no, :label => :field_device_no %></p>
+  </div>
+
+  <div class="splitcontentright">
+    <p class="object-select"><%= f.select :user_id, principals_options_for_select(@project.assignable_users, @material.user), :include_blank => true, :label => l(:field_user) %></p>
+    <p>
+	  <%= f.date_field :use_since, :size => 12, :value => @material.use_since ? @material.use_since.to_date : nil, :label => l(:field_use_since) %><%= text_field_tag "use_since_time", @material.use_since_time, :size => 5 %><%= calendar_for('material_use_since') %>    	
+    </p>
+	<p class="object-select"><%= f.select :purchaser_id, principals_options_for_select(@project.assignable_users, @material.purchaser), :include_blank => true, :label => l(:field_purchaser) %></p>
+    <p>
+	  <%= f.date_field :purchase_at, :size => 12, :value => @material.purchase_at ? @material.purchase_at.to_date : nil, :label => l(:field_purchase_at) %><%= text_field_tag "purchase_at_time", @material.purchase_at_time, :size => 5 %><%= calendar_for('material_purchase_at') %>
+    </p>
+    <p><%= f.text_field :location, :label => :field_location %></p>
+    <p>
+   	  <%= f.date_field :location_since, :size => 12, :value => @material.location_since ? @material.location_since.to_date : nil, :label => l(:field_location_since) %><%= text_field_tag "location_since_time", @material.location_since_time, :size => 5 %><%= calendar_for('material_location_since') %>
+    </p>
+    <p class="object-select"><%= f.select :handover_id, principals_options_for_select(@project.assignable_users, @material.handover), :include_blank => true, :label => l(:field_handover) %></p>
+    <p>
+  	  <%= f.date_field :handover_at, :size => 12, :value => @material.handover_at ? @material.handover_at.to_date : nil, :label => l(:field_handover_at) %><%= text_field_tag "handover_at_time", @material.handover_at_time, :size => 5 %><%= calendar_for('material_handover_at') %>    	
+    </p>
+    <p class="object-select"><%= f.select :owner_id, principals_options_for_select(@project.assignable_users, @material.owner), :include_blank => true, :label => l(:field_owner) %></p>
+    <p class="object-select"><%= f.select :responsible_by_id, principals_options_for_select(@project.assignable_users, @material.responsible_by), :include_blank => true, :label => l(:field_responsible_by) %></p>
+    <p><%= f.text_field :remark, :label => :field_remark, :size => 30 %></p>
+  </div>
+  
+  
+  <div style="clear:both;"> 
+    <p><%= f.text_area :detail, :cols => 60, :rows => 5, :class => 'wiki-edit' %><%= wikitoolbar_for 'material_detail' %></p>
+  </div>
+  
+  <fieldset><legend><%= l(:label_attachment_plural) %></legend>
+  <p><%= render :partial => 'attachments/form', :locals => {:container => @material} %></p>
+  </fieldset>
+  <br>
+</div>
+

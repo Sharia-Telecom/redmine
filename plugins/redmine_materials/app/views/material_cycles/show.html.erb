@@ -1,0 +1,37 @@
+<div class="contextual">
+  <%= link_to l(:button_edit), {:controller => "material_cycles", :action => "edit", :id => @material_cycle}, :class => 'icon icon-edit' if !@material_cycle.blank? && @material_cycle.editable_by?(User.current) %>
+  <%= link_to_if_authorized l(:button_duplicate), {:controller => 'material_cycles', :action => 'new', :project_id => @project, :material_id => @material, :copy_from => @material_cycle }, :class => 'icon icon-duplicate' %>
+  <%= link_to l(:button_delete), {:controller => "material_cycles", :action => "destroy", :id => @material_cycle}, :confirm => l(:text_are_you_sure), :method => :delete, :class => 'icon icon-del' if !@material_cycle.nil? && @material_cycle.destroyable_by?(User.current) %>
+</div>
+<h2>
+  <%= link_to("#{l(:label_material_belong)}#{l(:label_material)} ##{@material.id}", project_material_path(@project, @material)) %>
+</h2>
+
+<div class="issue details">
+  <div class="subject">
+  <h3>
+    <%= "#{l(:label_material_cycle)} ##{@material_cycle.id}" %>
+  </h3>
+  </div>
+  <p class="author">
+    <%= authoring @material_cycle.created_at, @material_cycle.author %>.
+    <% if @material_cycle.created_at != @material_cycle.updated_at %>
+      <%= l(:label_updated_time, time_tag(@material_cycle.updated_at)).html_safe %>.
+    <% end %>
+  </p>
+  
+  <<%= Redmine::VERSION.to_s > '3.2' ? 'div' : 'table' %> class="attributes">
+    <%= issue_fields_rows do |rows|
+      rows.left l(:field_stage), @material_cycle.stage_name
+      rows.right l(:field_event_type), @material_cycle.type_name
+      rows.left l(:field_order_no), @material_cycle.order_no
+      rows.right l(:field_location), @material_cycle.location
+      rows.left l(:field_outsider), @material_cycle.outsider
+      rows.right l(:field_value), @material_cycle.value
+      rows.left l(:field_location), @material_cycle.location
+      rows.right l(:field_purpose), @material_cycle.purpose_name
+      rows.left l(:field_warehouse), @material_cycle.warehouse.nil? ? "-" : @material_cycle.warehouse.name
+      rows.right l(:field_issue), @material_cycle.issue.nil? ? "- " : link_to(@material_cycle.issue.subject, issue_path(@material_cycle.issue))
+    end %>
+  </<%= Redmine::VERSION.to_s > '3.2' ? 'div' : 'table' %>>
+  

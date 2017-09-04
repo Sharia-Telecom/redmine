@@ -1,0 +1,70 @@
+#
+# Redhopper - Kanban boards for Redmine, inspired by Jira Agile (formerly known as
+# Greenhopper), but following its own path.
+# Copyright (C) 2015-2017 infoPiiaf <contact@infopiiaf.fr>
+#
+# This file is part of Redhopper.
+#
+# Redhopper is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# Redhopper is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with Redhopper.  If not, see <http://www.gnu.org/licenses/>.
+#
+es:
+  kanbans:
+    index:
+      issues_count: "Cantidad de Peticiones."
+      sorted: "Ordenados"
+      unsorted: "Sin ordenar"
+    kanban:
+      move2top: "Mover al inicio"
+      move2top_arrow: "Flecha doble hacia arriba"
+      moveup: "Mover arriba"
+      moveup_arrow: "Flecha simple hacia arriba"
+      movedown: "Mover abajo"
+      movedown_arrow: "Flecha simple hacia abajo"
+      move2bottom: "Mover al final"
+      move2bottom_arrow: "Flecha doble hacia abajo"
+      goto_unsorted: "Devolver a la sección sin ordenar"
+      goto_sorted: 'Mover a la sección ordenada'
+      notes_count: "Cantidad de notas."
+      attachments_count: "Cantidad de adjuntos."
+      assigned_user: "Usuario asignado."
+      description: "Descripción completa."
+      blocks: 'Bloquea a '
+      blocked_by: 'Bloqueado por '
+      block_with: 'Bloquear con '
+      last_note: 'última nota.'
+      unblock: 'Desbloquear.'
+      on_time: "En tiempo"
+      overdue: "Vencida"
+      due_unit: 'd'
+  settings:
+    kanbans:
+      configuration:
+        title: "Configuración"
+        hidden_trackers:
+          title: "Ocultar seguidores"
+      feature_switches:
+        title: "Conmutadores de características"
+    feature:
+      move_back_to_unsorted:
+        title: "Devolver una petición a la sección sin ordenar"
+        description: "Una petición ordenada tiene tan pocas razones para volver a la sección sin ordenar que decidimos deshabilitar esta característica a propósito. Actívelo con sabiduría."
+      only_open_statuses:
+        title: "Sólo estados abiertos"
+        description: "Sólo mostrar columnas para estados abiertos."
+      hide_tracker_name:
+        title: "Ocultar nombre del seguidor"
+        description: "No mostrar el nombre del seguidor de una petición en el tablero Kanban."
+      display_description_tooltip:
+        title: "Descripción como ventana emergente"
+        description: "Mostrar la descripción en una ventana emergente con formato."

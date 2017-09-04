@@ -1,0 +1,6 @@
+<h2><%= link_to l(:label_material_categories), :action =>"plugin", :id => "redmine_materials", :controller => "settings", :tab => 'material_categories' %> &#187; <%=l(:label_material_category_new)%></h2>
+
+<%= labelled_form_for :material_categories, @category, :url => {:action => 'create', :project_id => @project}, :html => { :multipart => true, :id => 'material_category_form'} do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= submit_tag l(:button_create) %>
+<% end %>

@@ -1,0 +1,58 @@
+<% if @project.module_enabled?(:scheduling_polls) %>
+<hr />
+<% if User.current.allowed_to?(:view_schduling_polls, @project) %>
+<div class="scheduling_poll">
+<% scheduling_poll = SchedulingPoll.find_by(:issue => @issue) %>
+<% if scheduling_poll %>
+<% vote_values = Hash[*SchedulingPollsController.helpers.scheduling_vote_values_array.flatten] %>
+  <div class="contextual">
+    <%= link_to l(:label_vote_on_scheduling_poll), scheduling_poll_path(scheduling_poll) %>
+  </div>
+  <p><strong><%=h l :label_scheduling_poll %></strong></p>
+  <div class="autoscroll">
+    <table class="list">
+      <thead>
+        <tr>
+          <th><!-- name --></th>
+          <% vote_values.each_pair do |k,v| %>
+            <%= content_tag :th, v %>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+      <% scheduling_poll.scheduling_poll_items.sorted.each_with_index do |item,i| %>
+        <tr class="<%= (i % 2 == 0)? 'odd' : 'even' %>">
+          <%= content_tag :td, item.text %>
+          <% vote_values.each_pair do |k,v| %>
+            <%= content_tag :td, item.scheduling_votes.where(:value => k).length %>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else # unless scheduling_poll %>
+  <div class="contextual">
+    <%= link_to l(:label_new), scheduling_polls_new_path(:issue => @issue) %>
+  </div>
+  <p><strong><%=h l :label_scheduling_poll %></strong></p>
+<% end %>
+<% elsif not User.current.logged? %>
+<% scheduling_poll = SchedulingPoll.find_by(:issue => @issue) %>
+<% if scheduling_poll %>
+  <div class="contextual">
+    <%= link_to l(:label_vote_on_scheduling_poll), scheduling_poll_path(scheduling_poll) %>
+  </div>
+  <p><strong><%=h l :label_scheduling_poll %></strong></p>
+<% else # unless scheduling_poll %>
+  <div class="contextual">
+    <%= link_to l(:label_new), scheduling_polls_new_path(:issue => @issue) %>
+  </div>
+  <p><strong><%=h l :label_scheduling_poll %></strong></p>
+<% end %>
+<% else %>
+  <p><strong><%=h l :label_scheduling_poll %></strong></p>
+<% end %>
+</div>
+
+<% end %><%# @project.module_enabled?(:scheduling_polls) %>

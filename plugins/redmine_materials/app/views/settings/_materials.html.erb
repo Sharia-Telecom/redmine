@@ -1,0 +1,8 @@
+<% materials_tabs = [{:name => 'general', :partial => 'settings/material_general', :label => :label_general},
+        {:name => 'material_categories', :partial => 'settings/material_categories', :label => :label_material_categories},
+        {:name => 'warehouses', :partial => 'settings/warehouses', :label => :label_warehouses}
+        ]   %>   
+
+<%= render_tabs materials_tabs %>
+
+<% html_title(l(:label_settings), l(:label_materials)) -%>  

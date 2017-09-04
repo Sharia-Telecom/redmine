@@ -1,0 +1,50 @@
+<%= error_messages_for 'material_cycle' %>
+
+<div class="box tabular attributes">
+
+<script type="text/javascript" charset="utf-8">
+	function eventChange(element) {
+    if (element.value == '<%= MaterialCycle::TYPE_STOCK_IN %>'
+    || element.value == '<%= MaterialCycle::TYPE_STOCK_OUT %>' ) {
+      $('#warehouse').children().prop('disabled',false);
+		} else {
+		  $('#warehouse').children().prop('disabled',true);
+		}
+
+	}
+</script>
+
+
+
+  <div class="splitcontentleft">
+    <p class="object-select"><%= f.select :stage, collection_for_stage_select, {}, :disabled => true, :required => true %></p>
+    <p class="object-select"><%= f.select :event_type, collection_for_type_select(@material_cycle.stage), {}, :onchange => "eventChange(this)", :required => true %></p>
+    <p id="location"> <%= f.text_field :location, :label => :field_location %></p>
+    <p id="warehouse" class="object-select"><%= f.select :warehouse, warehouses_for_select, {:include_blank => true}, :disabled => true %></p>
+    <p>
+      <%= f.text_field :issue_id, :size => 6 %>
+      <% if @material_cycle.issue.try(:visible?) %>
+      <span id="time_entry_issue"><%= "#{@material_cycle.issue.tracker.name} ##{@material_cycle.issue.id}: #{@material_cycle.issue.subject}" %></span>
+    <% end %>
+    </p>
+  </div>
+
+  <div class="splitcontentright">
+    <p><%= f.text_field :order_no, :label => :field_order_no %></p>
+    <p><%= f.text_field :value, :label => l(:field_value), :size => 10 %></p>
+    <p><%= f.text_field :outsider, :label => :field_outsider %></p>
+    <p class="object-select"><%= f.select :purpose, collection_for_purpose_select, :label => l(:field_purpose) %></p>
+    <p></p>
+    <p></p>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  observeAutocompleteField('material_cycle_issue_id', '<%= escape_javascript auto_complete_issues_path(:project_id => @project, :scope => (@project ? nil : 'all'))%>', {
+    select: function(event, ui) {
+      $('#material_cycle_issue').text(ui.item.label);
+      $('#material_cycle_issue_id').blur();
+    }
+  });
+<% end %>
+

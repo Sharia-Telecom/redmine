@@ -1,0 +1,12 @@
+<%
+login_text = Additionals.settings[:account_login_bottom]
+
+unless login_text.blank?
+%>
+
+<br />
+<div class="login-additionals">
+  <%= textilizable(login_text) %>
+</div>
+
+<% end %>

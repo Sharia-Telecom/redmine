@@ -1,0 +1,175 @@
+= redmine_materials
+
+This is a simple redmine plugin for materials and devices' fundamental management.
+For basic account management of device, equipment, books or other items. 
+Record the material's usage or storage information instead of manual management.
+This plugin is open source and released under the terms of the GNU General Public License v2 (GPL).
+
+Install:
+
+1.Copy the plugin directory into the plugins directory (make sure the name is redmine_materials)
+
+2.Install the required gems (in the Redmine root directory)
+
+bundle install --without development test
+
+3.Execute migration
+
+rake redmine:plugins:migrate NAME=redmine_materials RAILS_ENV=production
+
+4.Start Redmine
+
+5.Add Categories
+
+in administration menu visit the redmine_materials' plugin's configuration
+
+
+Uninstall
+
+Rollback the migration
+
+rake redmine:plugins:migrate  NAME=redmine_materials VERSION=0 RAILS_ENV=production
+
+Delete the plugin directory (plugins/redmine_materials)
+
+Versions:
+0.1.5
+fixed the bug that exporting to csv didn't work
+added field_material(warehouse)_name to avoid using the globle locale key
+fixed the bug that importing csv didin't work 
+
+0.1.4
+optmized the field for date and time format selection
+
+0.1.3
+added locale for Poland language
+
+0.1.2
+continue testing
+add admin menu for plugin's setting
+simple validation of the nested parent material
+
+0.1.1
+material's csv import/export supporting 
+
+0.1.0
+fix the bug which only be set to blank on the selection's field
+adjust the field's position for the normal tab order
+
+0.0.9
+fix the bug: the warehouse is disable to be selected
+
+0.0.8
+basic functional test
+
+0.0.7
+basic unit test
+add the feature of life cycle's activity stream
+
+0.0.6
+material cycle supporting
+inventory and warehouse supporting
+
+0.0.5
+begin supporting exporting csv (still not work)
+fix bugs of db migration script using references type
+test for running under 3.2.1. it works
+
+0.0.4
+comments feature
+
+0.0.3
+global search feature
+activity stream feature
+
+0.0.2
+add top menu and global index
+
+0.0.1
+init
+
+ToDo List:
+Cross Project Reference and Globle Query
+Dictionary Data Customed
+The Status' Controller
+Add Unit, Function and Integration Test Code
+More Locales
+No Material's Nested Reference
+Inventory Features
+Activie Stream
+Globle Search
+Import and Export
+Issues' Reference
+Commit For Material Feature
+
+这是一个简单的物资/设备基础管理插件。
+用于设备、装备、图书或其他物品的基本台账管理。记录物资使用或存储的信息，取代手工管理。
+
+版本:
+0.1.5
+修复不能正常导出csv的缺陷
+增加物资（仓库）名称field避免使用全局本地化的键
+修复不能正常导入csv的缺陷
+
+0.1.4
+优化日期和时间格式的选择字段
+
+0.1.3
+增加波兰语本地化文件
+
+0.1.2
+继续测试
+加入管理菜单用于插件设置
+简单的物资父项传递依赖验证
+
+0.1.1
+物资csv格式导入/导出支持
+ 
+0.1.0
+修复缺陷：在某些下拉框里总是重置为空
+调整栏目位置以符合tab顺序
+
+0.0.9
+修复缺陷：仓库列表不能选择
+
+0.0.8
+基本的功能测试
+
+0.0.7
+基本的单元测试
+增加周期活动流特性
+
+0.0.6
+物资生命周期支持
+库存和仓库支持
+
+0.0.5
+支持csv导出（未生效）
+在3.2.1下运行
+
+0.0.4
+评论功能
+
+0.0.3
+全局搜索
+活动事件流
+
+0.0.2
+顶层菜单
+
+0.0.1
+初始
+
+待实现列表：
+跨项目
+数据字典可维护
+根据状态控制
+补充编写测试用例
+更多的语言
+无递归引用
+库存管理
+事件流
+全局搜索
+导入导出
+问题关联
+物资评论

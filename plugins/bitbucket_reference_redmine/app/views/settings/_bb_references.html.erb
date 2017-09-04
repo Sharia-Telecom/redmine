@@ -1,0 +1,34 @@
+<h3>Settings</h3>
+
+<p>
+    <%= label_tag 'settings[allow_new_bb_accounts]', 'Allow new Bitbucket connections' %>
+    <%= hidden_field_tag('settings[allow_new_bb_accounts]', '0', :id => nil).html_safe +
+    check_box_tag('settings[allow_new_bb_accounts]', '1', @settings['allow_new_bb_accounts'] != '0').html_safe %>
+</p>
+
+<h3>Bitbucket accounts</h3>
+
+<h4>Connected</h4>
+<ul>
+<% BitbucketConnections.connected_accounts().all.each do |bb_account| %>
+  <li>
+    <a href="<%= bb_account.principal_link%>"><%= bb_account.principal %></a>
+    <span>was connected by</span>
+    <a href="<%= bb_account.user_link%>"><%= bb_account.user %></a>
+    <%= link_to '[Disconnect]', [bb_account, :disconnect], method: :post %>
+  </li>
+<% end %>
+</ul>
+
+<h4>Requesting to connect</h4>
+<ul>
+<% BitbucketConnections.connecting_accounts().all.each do |bb_account| %>
+  <li>
+    <span>Bitbucket user</span>
+    <a href="<%= bb_account.user_link%>"><%= bb_account.user %></a>
+    <span>wants to connect Bitbucket account</span>
+    <a href="<%= bb_account.principal_link%>"><%= bb_account.principal %></a>
+    <%= link_to '[Allow]', [bb_account, :allow], method: :post %>
+  </li>
+<% end %>
+</ul>

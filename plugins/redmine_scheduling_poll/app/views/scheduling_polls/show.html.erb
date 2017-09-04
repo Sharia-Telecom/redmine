@@ -1,0 +1,133 @@
+<%= content_for :header_tags do %>
+  <%= stylesheet_link_tag 'scheduling_polls.css', :plugin => 'redmine_scheduling_poll' %>
+<% end %>
+<%= content_for :sidebar do %>
+  <%= render_date_related_parameter_of_issue(@poll.issue) %>
+<% end %>
+
+<h2><%=h l :label_scheduling_poll %></h2>
+
+<div id="scheduling-poll" class="box">
+<div class="contextual">
+  <%= link_to l(:label_edit_scheduling_poll_items), scheduling_poll_edit_path(@poll), :class => 'icon icon-edit' %>
+</div>
+<h3><%= @poll.issue.subject %></h3>
+
+<% unless @poll.scheduling_poll_items.empty? %>
+
+<% vote_values = Hash[*scheduling_vote_values_array.flatten] %>
+<%= form_tag(url_for(:controller => "scheduling_polls", :id => @poll.id, :action => "vote")) do %>
+
+<div class="autoscroll">
+<table class="list">
+<thead>
+  <tr>
+    <th><!-- name --></th>
+    <% if User.current.allowed_to?(:vote_schduling_polls, @poll.issue.project) %>
+      <%= content_tag :th, User.current.name %>
+    <% end %>
+    <% vote_values.each_pair do |k,v| %>
+      <%= content_tag :th, v, :class => "scheduling-poll-vote-result-side-col" %>
+    <% end %>
+  </tr>
+</thead>
+<tbody>
+<% @poll.scheduling_poll_items.sorted.each_with_index do |item,i| %>
+  <tr class="<%= (i % 2 == 0)? 'odd' : 'even' %>">
+    <%= content_tag :td, item.text %>
+    <% if User.current.allowed_to?(:vote_schduling_polls, @poll.issue.project) %>
+      <td>
+        <% current_vote_value = scheduling_vote_value(item.vote_by_user(User.current)) %>
+        <% vote_values.merge(0 => scheduling_vote_value(0)).each_pair do |k,v| %>
+          <label class="scheduling-poll-vote-radiobutton">
+            <%= radio_button :scheduling_vote, item.id, k, :checked => (v == current_vote_value) %>
+            <%=h v %>
+          </label>
+        <% end %>
+      </td>
+    <% end %>
+    <% vote_values.each_pair do |k,v| %>
+      <%= content_tag :td, item.scheduling_votes.where(:value => k).length, :class => "scheduling-poll-vote-result-side-col" %>
+    <% end %>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+<% if User.current.allowed_to?(:vote_schduling_polls, @poll.issue.project) %>
+<div>
+  <%= link_to_function l(:label_add_comment_with_scheduling_poll_vote), '$("#vote_comment").show();$(this).hide()', :class => 'icon icon-comment' %>
+  <%= text_area_tag :vote_comment, '', :style => 'display: none; width: 100%' %>
+</div>
+<div>
+  <%= submit_tag l(:label_vote_on_scheduling_poll) %>
+</div>
+<% end %>
+<%= javascript_tag <<EOD
+$(function() {
+  "use strict";
+  $("#scheduling-poll form").on("submit", function (event) {
+    if ($("[name^=scheduling_vote]").filter(function(){ return this.defaultChecked != this.checked; }).length == 0) {
+      alert(#{l(:error_scheduling_vote_no_change).to_json});
+      event.preventDefault();
+    }
+  });
+});
+EOD
+%>
+
+<% end %>
+<% else %><%# if @poll.scheduling_poll_items.empty? %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+
+</div>
+
+<h3><%=h l(:label_scheduling_poll_voting_result) %></h3>
+<% unless @poll.users.empty? %>
+<div class="autoscroll">
+<table class="list scheduling-voting-result">
+  <thead>
+    <th></th>
+    <% @poll.scheduling_poll_items.sorted.each do |item| %>
+    <th><%= item.text %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% @poll.users.each_with_index do |user,i| %>
+    <tr class="<%= (i % 2 == 0)? 'odd' : 'even' %>">
+      <td><%= link_to user.name, user_path(user) %></td>
+      <% @poll.scheduling_poll_items.sorted.each do |item| %>
+        <% vote = item.vote_by_user(user) %>
+        <% if vote %>
+          <%= content_tag :td, scheduling_vote_value(vote), :title => format_time(vote.modify_at || vote.create_at) %>
+        <% else %>
+          <%= content_tag :td %>
+        <% end %>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <% vote_values.keys.each_with_index do |k,i| %>
+    <tr class="<%= (i % 2 == 0)? 'odd' : 'even' %>">
+      <td><%=h vote_values[k] %></td>
+      <% @poll.scheduling_poll_items.sorted.each do |item| %>
+      <%= content_tag :td, item.scheduling_votes.where(:value => k).length %>
+      <% end %>
+    </tr>
+    <% end %>
+  </tfoot>
+</table>
+</div>
+<ul>
+<% datetime = Arel::Nodes::NamedFunction.new('COALESCE', [SchedulingVote.arel_table[:modify_at], SchedulingVote.arel_table[:create_at]]) %>
+<% @poll.votes.group(:user).maximum(datetime.to_sql).sort_by { |k,v| v }.each do |v| %>
+  <% user, datetime = v %>
+  <li><%= authoring datetime, user, :label => :label_updated_time_by %></li>
+<% end %>
+</ul>
+<% else %><%# if @poll.scheduling_poll_items.empty? %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+

@@ -1,0 +1,193 @@
+# Simple Chinese strings go here for Rails i18n
+zh:
+  # my_label: "My label"
+  label_materials: 物资
+  label_material: 物资
+  label_material_plural: 物资
+
+  label_material_belong: 所属 
+  
+  field_name: 名称
+  field_material_name: 名称
+  field_inner_code: 内部编号
+  field_parent_material: 父项
+  field_brand: 品牌
+  field_category: 分类
+  field_amount: 数量
+  field_original_value: 原值
+  field_current_value: 现值
+  field_purchaser: 采购人
+  field_purchase_at: 采购于
+  field_device_no: 厂商编码
+  field_property: 性质
+  field_property_name: 性质
+  field_handover: 交接人(前次用户)
+  field_handover_at: 交接于
+  field_user: 用户(当前用户)
+  field_use_since: 使用自
+  field_location: 位置
+  field_location_since: 放置自
+  field_owner: 属主
+  field_responsible_by: 负责人
+  field_author: 作者
+  field_remark: 备注
+  field_status: 状态
+  field_status_name: 状态
+  field_project: 项目
+  field_detail: 详细
+  
+  label_material_new: 新增物资
+  label_material_edit: 编辑物资
+  
+  label_material_cycle_issue: 物资周期类跟踪
+  
+  notice_material_create_success: 物资创建成功
+  notice_material_create_fail: 物资创建失败
+  notice_material_del_success: 物资删除成功
+  notice_material_del_fail: 物资删除失败
+  notice_material_update_success: 物资更新成功
+  notice_material_update_fail: 物资更新失败
+  
+  project_module_redmine_materials: 物资
+  
+  permission_new_materials: 新增物资
+  permission_show_global_materials: 显示全局物资
+  permission_show_materials: 显示物资
+  permission_edit_materials: 编辑物资
+  permission_delete_materials: 删除物资
+  
+  permission_import_materials: 导入物资
+
+  permission_comment_materials: 评论物资
+  permission_delete_material_comments: 删除物资评论
+  
+  permission_new_material_cycles: 新增物资周期
+  permission_show_material_cycles: 显示物资周期
+  permission_edit_material_cycles: 编辑物资周期
+  permission_delete_material_cycles: 删除物资周期
+  
+  label_material_categories: 分类
+  label_material_category: 分类
+  label_material_category_new: 新建分类
+  text_material_category_destroy_question: "有些物资 (%{count}) 被分配到该分类。确定要删除么?"
+  text_material_category_reassign_to: 重新分配物资到该分类
+  
+  field_material_category: 分类
+  field_material_category_code: 编码
+  field_material_category_parent_id: 父类
+  
+  label_material_show_in_top_menu: 在顶层菜单显示
+  
+  label_import_materials: 导入物资
+  
+  button_add_sub: 新增子物资
+  
+  label_material_status_normal: 正常可用
+  label_material_status_useless: 报废
+  label_material_status_lock: 锁定
+  label_material_status_other: 其他
+  
+  label_material_property_inner: 内部
+  label_material_property_outside: 外部
+  label_material_property_personal: 个人
+  label_material_property_other: 其他
+  
+  label_warehouses: 仓库
+  label_warehouse: 仓库
+  
+  label_warehouse_new: 新建仓库
+  
+  field_warehouse_code: 编码
+  field_warehouse_name: 名称
+  field_warehouse_type: 类型
+  field_found_date: 创建于
+  
+  label_warehouse_type_inner: 内部
+  label_warehouse_type_virtual: 虚拟
+  label_warehouse_type_outer: 外部
+  label_warehouse_type_rent: 租赁
+  label_warehouse_type_temp: 临时
+  label_warehouse_type_other: 其他
+  
+  label_warehouse_status_normal: 正常
+  label_warehouse_status_lock: 锁定
+  
+  label_material_cycles: 物资周期
+  label_material_cycle: 物资周期
+  label_material_cycle_plural: 物资周期
+
+  label_material_cycle_new: 新建物资周期
+  label_material_cycle_edit: 编辑物资周期
+  label_material_cycle_delete: 删除物资周期
+  label_material_cycle_entry: 初始进入
+  label_material_cycle_middle: 中间流转
+  label_material_cycle_exit: 最终退出
+  
+  field_material: 物资
+  field_stage: 阶段
+  field_stage_name: 阶段
+  field_event_type: 事件类型
+  field_type_name: 事件类型
+  field_material: 物资
+  field_outsider: 外部人员
+  field_order_no: 业务单号
+  field_direction: 方向
+  field_direction_name: 方向
+  field_value: 价值
+  field_purpose: 目的
+  field_purpose_name: 目的
+  field_warehouse: 仓库
+  
+  label_material_cycle_stage_entry: 进入
+  label_material_cycle_stage_middle: 中间过程
+  label_material_cycle_stage_exit: 退出
+  
+  label_material_cycle_event_type_buy_in: 买入
+  label_material_cycle_event_type_sell_out: 卖出
+  label_material_cycle_event_type_rent: 租入
+  label_material_cycle_event_type_rent_out: 租出
+  label_material_cycle_event_type_borrow: 借入
+  label_material_cycle_event_type_loan: 借出
+  label_material_cycle_event_type_stock_in: 入库
+  label_material_cycle_event_type_stock_out: 出库
+  label_material_cycle_event_type_get: 接收
+  label_material_cycle_event_type_give: 给出
+  label_material_cycle_event_type_scrap: 报废
+  label_material_cycle_event_type_loss: 丢失
+  label_material_cycle_event_type_sell: 卖出
+  label_material_cycle_event_type_return: 归还
+  label_material_cycle_event_type_transfer: 转移
+  label_material_cycle_event_type_discard: 废弃
+  label_material_cycle_event_type_lock: 锁定
+  label_material_cycle_event_type_unknown: 未知
+  
+  label_material_cycle_purpose_usage: 使用
+  label_material_cycle_purpose_store: 存放
+  label_material_cycle_purpose_maintain: 维护
+  label_material_cycle_purpose_repair: 修理
+  label_material_cycle_purpose_unknown: 未知
+  
+  label_material_cycle_direction_from: 从
+  label_material_cycle_direction_to: 到
+  label_material_cycle_direction_undef: 未定
+  
+  notice_material_cycle_create_success: 物资周期创建成功
+  notice_material_cycle_create_fail: 物资周期创建失败
+  notice_material_cycle_del_success: 物资周期删除成功
+  notice_material_cycle_del_fail: 物资周期删除失败
+  notice_material_cycle_update_success: 物资周期更新成功
+  notice_material_cycle_update_fail: 物资周期更新失败
+  
+  label_material_cycle_nil_issue_subject: 物资在生命周期中
+  label_material_cycle_entry_issue_subject: 物资初始进入生命周期
+  label_material_cycle_middle_issue_subject: 物资在内部中转
+  label_material_cycle_exit_issue_subject: 物资最终退出生命周期
+  
+  label_comma_char: 逗号
+  label_semi_colon_char: 分号
+  label_quote_char: 引号
+  label_double_quote_char: 双引号
+  label_fields_mapping: 字段映射
+  label_file_content_preview: 文件内容预览
+  
+  label_csv_import: Csv导入

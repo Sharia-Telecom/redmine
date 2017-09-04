@@ -1,0 +1,6 @@
+<h2><%= link_to l(:label_material_categories), :action =>"plugin", :id => "redmine_material", :controller => "settings", :tab => 'material_categories' %> &#187; <%= @category.name %></h2>
+
+<%= labelled_form_for @category, :url => {:action => 'update', :id => @category.id}, :html => { :multipart => true, :method => :put, :id => 'material_category_form'} do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= submit_tag l(:button_save) %>
+<% end %>

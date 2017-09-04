@@ -1,0 +1,42 @@
+<% if @issue.new_record? && @issue.material_cycle && !@copy_from && User.current.allowed_to?(:new_material_cycles, @project) %>
+
+<% @issue.build_material_cycle if @issue.material_cycle.blank? %>
+
+<h2><%= l(:label_material_cycle_issue) %></h2>
+<%= form.fields_for :material_cycle do |f| %>
+<%= error_messages_for 'material_cycle' %>
+
+<div class="box tabular attributes">
+
+<script type="text/javascript" charset="utf-8">
+	function eventChange(element) {
+    if (element.value == '<%= MaterialCycle::TYPE_STOCK_IN %>'
+    || element.value == '<%= MaterialCycle::TYPE_STOCK_OUT %>' ) {
+      $('#warehouse').children().prop('disabled',false);
+		} else {
+		  $('#warehouse').children().prop('disabled',true);
+		}
+
+	}
+</script>
+  <div class="splitcontentleft">
+    <p class="object-select"><%= f.select :stage, collection_for_stage_select, {}, :disabled => true %></p>
+    <%= f.hidden_field :stage, :label => :field_stage, :value => @issue.material_cycle.stage %>
+    <%= f.hidden_field :project_id, :label => :field_project, :value => @issue.material_cycle.project_id %>
+    <p class="object-select"><%= f.select :event_type, collection_for_type_select(@issue.material_cycle.stage), {}, :onchange => "eventChange(this)" %></p>
+    <p id="location"> <%= f.text_field :location, :label => :field_location, :value => @issue.material_cycle.location  %></p>
+    <p id="warehouse" class="object-select"><%= f.select :warehouse_id, warehouses_for_select, {:include_blank => true}, :disabled => true %></p>
+  </div>
+
+  <div class="splitcontentright">
+    <p><%= f.text_field :order_no, :label => :field_order_no, :value => @issue.material_cycle.order_no %></p>
+    <p><%= f.text_field :value, :label => l(:field_value), :size => 10, :value => @issue.material_cycle.value %></p>
+    <p><%= f.text_field :outsider, :label => :field_outsider, :value => @issue.material_cycle.outsider %></p>
+    <%= f.hidden_field :material_id, :label => :field_material, :value => @issue.material_cycle.material_id %>
+    <%= f.hidden_field :author_id, :label => :field_author, :value => @issue.material_cycle.author_id %>
+    <p class="object-select"><%= f.select :purpose, collection_for_purpose_select, :label => l(:field_purpose) %></p>
+  </div>
+</div>
+
+<% end -%>
+<% end -%>
