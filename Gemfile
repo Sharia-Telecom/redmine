@@ -195,7 +195,6 @@ gem "fakeweb", "~> 1.3", :require => false
 gem "factory_girl"
 gem "codeclimate-test-reporter", :require => false
 gem "rake", :require => false
-gem "minitest-reporters"
 gem "spy"
 gem "database_cleaner", "1.5.1"
 gem "minitest-around"
