@@ -82,33 +82,134 @@ require 'yaml'
 #  warn("Please configure your config/database.yml first")
 #end
 group :production do
-  # gems specifically for Heroku go here
-  gem "rails_12factor"
-  gem "pg", "~> 0.18.1", :platforms => [:mri, :mingw, :x64_mingw]
-  gem "puma"
-  gem "acts_as_list"
-  gem "redmine_crm"
-  gem "vcard", "~> 0.2.8"
-  gem "redmine_extensions" unless Dir.exist?(File.expand_path('../../easyproject', __FILE__))
-  gem "httpclient"
-  gem "whenever"
+# gems specifically for Heroku go here
+gem "rails_12factor"
+gem "pg", "~> 0.18.1", :platforms => [:mri, :mingw, :x64_mingw]
+gem "puma"
+gem "acts_as_list"
+gem "rails_12factor"
+gem "pg", "~> 0.18.1", :platforms => [:mri, :mingw, :x64_mingw]
+gem "puma"
+gem "acts_as_list"
+gem "svg-graph"
+gem "redmine_crm"
+gem "vcard", "~> 0.2.8"
+gem "spreadsheet", "~> 0.6.8"
+gem "rufus-scheduler", "3.0.3"
+gem "write_xlsx"
+if RUBY_VERSION > '1.9'
+  gem "prawn", "~> 1.0.0"
+else
+  gem "pdf-reader", '<1.4.0'
+  gem "prawn", "0.12.0"
+end
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"
+gem "deface", ">= 1.1.0"
+gem "resort", "~> 0.5.0"
+gem "haml", "~> 4.0.6"
+gem "dropbox-api"
+gem "holidays"
+gem "roo'"
+gem "axlsx"
+gem "axlsx_rails"
+gem "dalli"
+gem "memcachier"
+gem "lockfile", "~> 2.1.3"
+gem "money"
+gem "jwt", "~> 1.5"
+gem "active_model_otp"
+gem "rqrcode"
+gem "omniauth-google-oauth2", ">= 0.2.6"
+gem "google-api-client", ">= 0.7.1"
+gem "rest-client"
+gem "jwt", ">= 0.1.5"
+gem "activeresource"
+gem "rich", git: "https://github.com/a-ono/rich.git"
+gem "kaminari"
+gem "htmlentities"
+gem "paperclip", "~> 4.2.1"
+gem "pandoc-ruby"
+gem "sprockets-rails", "< 3.0.0"
+gem "vpim", "13.11.11"
+gem "sass"
+gem "redmine_extensions" unless Dir.exist?(File.expand_path('../../easyproject', __FILE__))
+gem "fog", "1.29"
+gem "haml-rails"
+gem "require_patch", "~> 0.1.0"
+gem "docile", "~> 1.1.0"
+gem "json", "~> 1.8"
+gem "simplecov-html", "~> 0.10.0"
+gem "httpclient"
+gem "business_time", "0.7.6"
+gem "rubyzip", ">= 1.0.0"
+gem "zip-zip"
+gem "simple_enum"
+gem "uuidtools"
+gem "dav4rack"
+gem "dalli"
+gem "deep_cloneable", "~> 2.2.2"
+gem "whenever", :require => false
+gem "pidfile", git: "https://github.com/arturtr/pidfile.git"
+gem "sidekiq-failures", git: "https://github.com/mhfs/sidekiq-failures.git", branch: "master"
+gem "sidekiq-cron"
+gem "sidekiq-rate-limiter", git: "https://github.com/centosadmin/sidekiq-rate-limiter", branch: "master", :require => "sidekiq-rate-limiter/server"
+gem "telegram-bot-ruby", "<= 0.7.2"
+gem "sidekiq"
+gem "sinatra"
+gem "byebug"
+gem "attr_encrypted"
+gem "encryptor"
+gem "gemoji", "~> 3.0.0"
+gem "letter_opener", "~> 1.4.0"
+gem "letter_opener_web", "~> 1.3.0"
+end
+
+group :xapian do
+gem "xapian-full-alaveteli", :require => false
 end
 
 group :development do
-  gem "rdoc", "~> 4.3"
-  gem "yard"
+gem "rdoc", "~> 4.3"
+gem "yard"
+gem "sass", "~> 3.4.15"
+gem "copyright-header", "~> 1.0.8"
+gem "rubocop", :require => false
 end
 
 group :test do
-  gem "minitest"
-  gem "rails-dom-testing"
-  gem "mocha"
-  gem "simplecov", "~> 0.9.1", :require => false
-  # TODO: remove this after upgrading to Rails 5
-  gem "test_after_commit", "~> 0.4.2"
-  # For running UI tests
-  gem "capybara"
-  gem "selenium-webdriver", "~> 2.53.4"
+gem "minitest"
+gem "rails-dom-testing"
+gem "mocha"
+gem "simplecov", "~> 0.9.1", :require => false
+# TODO: remove this after upgrading to Rails 5
+gem "test_after_commit", "~> 0.4.2"
+# For running UI tests
+gem "capybara"
+gem "selenium-webdriver", "~> 2.53.4"
+gem "simplecov-rcov"
+gem "factory_girl_rails"
+gem "shoulda"
+gem "simplecov"
+gem "shoulda-matchers"
+gem "coveralls", :require => false
+gem "launchy"
+gem "poltergeist"
+gem "capybara-screenshot"
+gem "timecop"
+gem "vcr"
+gem "webmock"
+gem "fakeweb", "~> 1.3", :require => false
+gem "factory_girl"
+gem "codeclimate-test-reporter", :require => false
+gem "rake", :require => false
+gem "minitest-reporters"
+gem "mocha"
+gem "spy"
+gem "database_cleaner", "1.5.1"
+gem "minitest-around"
+gem "minitest-reporters"
+gem "brakeman"
 end
 
 local_gemfile = File.join(File.dirname(__FILE__), "Gemfile.local")
