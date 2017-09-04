@@ -1,3 +1,0 @@
-module WkexchangerateHelper
-include WktimeHelper
-end

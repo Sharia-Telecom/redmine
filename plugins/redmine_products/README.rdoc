@@ -1,3 +1,0 @@
-= redmine_products
-
-Description goes here
