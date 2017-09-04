@@ -188,7 +188,6 @@ gem "selenium-webdriver", "~> 2.53.4"
 gem "simplecov-rcov"
 gem "factory_girl_rails"
 gem "shoulda"
-gem "simplecov"
 gem "shoulda-matchers"
 gem "coveralls", :require => false
 gem "launchy"
