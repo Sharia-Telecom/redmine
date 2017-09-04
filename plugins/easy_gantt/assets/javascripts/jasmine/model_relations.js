@@ -1,3 +1,0 @@
-describe("Model relations",function(){
-  
-});

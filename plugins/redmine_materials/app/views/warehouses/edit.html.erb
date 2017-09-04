@@ -1,7 +1,0 @@
-<h2><%= link_to l(:label_warehouses), :action =>"plugin", :id => "redmine_material", :controller => "settings", :tab => 'warehouses' %> &#187; <%= @warehouse.name %></h2>
-
-<%= labelled_form_for @warehouse, :url => {:action => 'update', :id => @warehouse.id}, :html => { :multipart => true, :method => :put, :id => 'warehouse_form'} do |f| %>
-  <%= render :partial => 'form', :locals => {:f => f} %>
-  <%= submit_tag l(:button_save) %>
-<% end %>
-

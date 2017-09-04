@@ -1,7 +1,0 @@
-<%= raw @materials.map {|material| {
-      'id' => material.id,
-      'label' => "#{material.name} (#{material.inner_code})",
-      'value' => material.id
-      }
-    }.to_json
-%>
