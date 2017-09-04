@@ -87,10 +87,6 @@ gem "rails_12factor"
 gem "pg", "~> 0.18.1", :platforms => [:mri, :mingw, :x64_mingw]
 gem "puma"
 gem "acts_as_list"
-gem "rails_12factor"
-gem "pg", "~> 0.18.1", :platforms => [:mri, :mingw, :x64_mingw]
-gem "puma"
-gem "acts_as_list"
 gem "svg-graph"
 gem "redmine_crm"
 gem "vcard", "~> 0.2.8"
@@ -145,7 +141,6 @@ gem "zip-zip"
 gem "simple_enum"
 gem "uuidtools"
 gem "dav4rack"
-gem "dalli"
 gem "deep_cloneable", "~> 2.2.2"
 gem "whenever", :require => false
 gem "pidfile", git: "https://github.com/arturtr/pidfile.git"
@@ -201,7 +196,6 @@ gem "factory_girl"
 gem "codeclimate-test-reporter", :require => false
 gem "rake", :require => false
 gem "minitest-reporters"
-gem "mocha"
 gem "spy"
 gem "database_cleaner", "1.5.1"
 gem "minitest-around"
