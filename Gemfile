@@ -128,12 +128,12 @@ gem "pandoc-ruby"
 gem "sprockets-rails", "< 3.0.0"
 gem "vpim", "13.11.11"
 gem "redmine_extensions" unless Dir.exist?(File.expand_path('../../easyproject', __FILE__))
-#gem "fog"#, "1.29.0"
+gem "fog"#, "1.29.0"
 gem "haml-rails"
 gem "require_patch", "~> 0.1.0"
 gem "docile", "~> 1.1.0"
 gem "json", "~> 1.8"
-gem "simplecov-html", "~> 0.10.0"
+gem "simplecov-html", "~> 0.9.0"
 gem "httpclient"
 gem "business_time", "0.7.6"
 gem "rubyzip", ">= 1.0.0"
@@ -174,7 +174,7 @@ group :test do
 gem "minitest"
 gem "rails-dom-testing"
 gem "mocha"
-gem "simplecov"#, "~> 0.9.1", :require => false
+gem "simplecov", "~> 0.9.0", :require => false
 # TODO: remove this after upgrading to Rails 5
 gem "test_after_commit", "~> 0.4.2"
 # For running UI tests
