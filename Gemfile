@@ -128,7 +128,7 @@ gem "pandoc-ruby"
 gem "sprockets-rails", "< 3.0.0"
 gem "vpim", "13.11.11"
 gem "redmine_extensions" unless Dir.exist?(File.expand_path('../../easyproject', __FILE__))
-#gem "fog", "1.36.0"
+gem "fog", "1.36.0"
 gem "haml-rails"
 gem "require_patch", "~> 0.1.0"
 gem "docile", "~> 1.1.0"
@@ -194,7 +194,7 @@ gem "webmock"
 gem "fakeweb", "~> 1.3", :require => false
 gem "factory_girl"
 gem "codeclimate-test-reporter", :require => false
-#gem "rake", :require => false
+gem "rake", :require => false
 gem "spy"
 gem "database_cleaner", "1.5.1"
 gem "minitest-around"
