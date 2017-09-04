@@ -1,8 +1,0 @@
-.DS_Store
-.buildpath
-coverage/
-.project
-.settings/
-docs/_build
-docs/_static
-docs/_templates
