@@ -158,9 +158,9 @@ gem "letter_opener", "~> 1.4.0"
 gem "letter_opener_web", "~> 1.3.0"
 end
 
-group :xapian do
-gem "xapian-full-alaveteli", :require => false
-end
+#group :xapian do
+#gem "xapian-full-alaveteli", :require => false
+#end
 
 group :development do
 gem "rdoc", "~> 4.3"
