@@ -131,7 +131,6 @@ gem "paperclip", "~> 4.2.1"
 gem "pandoc-ruby"
 gem "sprockets-rails", "< 3.0.0"
 gem "vpim", "13.11.11"
-gem "sass"
 gem "redmine_extensions" unless Dir.exist?(File.expand_path('../../easyproject', __FILE__))
 gem "fog", "1.29"
 gem "haml-rails"
