@@ -133,7 +133,6 @@ gem "haml-rails"
 gem "require_patch", "~> 0.1.0"
 gem "docile", "~> 1.1.0"
 gem "json", "~> 1.8"
-#gem "simplecov-html", "~> 0.10.0"
 gem "httpclient"
 gem "business_time", "0.7.6"
 gem "rubyzip", ">= 1.0.0"
@@ -158,9 +157,9 @@ gem "letter_opener", "~> 1.4.0"
 gem "letter_opener_web", "~> 1.3.0"
 end
 
-#group :xapian do
+group :xapian do
 #gem "xapian-full-alaveteli", :require => false
-#end
+end
 
 group :development do
 gem "rdoc", "~> 4.3"
@@ -175,6 +174,7 @@ gem "minitest"
 gem "rails-dom-testing"
 gem "mocha"
 gem "simplecov", "~> 0.9.1", :require => false
+gem "simplecov-html", "~> 0.10.0"
 # TODO: remove this after upgrading to Rails 5
 gem "test_after_commit", "~> 0.4.2"
 # For running UI tests
