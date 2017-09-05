@@ -22,6 +22,6 @@ Redmine::Plugin.register :redmine_another_page do
   description 'Allow admins to modify the "My Page" of other users, and create / load templates for this page for all users'
   version '0.1.1'
 
-  menu :admin_menu, :manage_other_users_pages, {controller: 'another', action: 'index'}, :caption => :label_manage_other
+  menu :admin_menu, 'icon manage_other_users_pages', {controller: 'another', action: 'index'}, :caption => :label_manage_other
 end
 
