@@ -174,7 +174,7 @@ gem "minitest"
 gem "rails-dom-testing"
 gem "mocha"
 gem "simplecov", "~> 0.9.1", :require => false
-#gem "simplecov-html", "~> 0.10.0"
+gem "simplecov-html"#, "~> 0.10.0"
 # TODO: remove this after upgrading to Rails 5
 gem "test_after_commit", "~> 0.4.2"
 # For running UI tests
