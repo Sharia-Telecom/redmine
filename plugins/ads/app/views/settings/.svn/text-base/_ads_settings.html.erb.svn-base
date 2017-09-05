@@ -1,0 +1,124 @@
+<!--
+Copyright © Emilio González Montaña
+Licence: Attribution-NoDerivatives 4.0 International
+  * Attribution to the plugin web page URL should be done if you want to use it.
+    https://redmine.ociotec.com/projects/redmine-plugin-ads
+  * No derivates of this plugin (or partial) are allowed.
+Take a look to licence.txt file at plugin root folder for further details.
+-->
+
+<div class="" style="float: right;">
+  <%= link_to(l(:label_help),
+              'https://redmine.ociotec.com/projects/redmine-plugin-ads/wiki/How_to_install_and_configure#Configuration-parameters',
+              :class => 'icon icon-help', :target => '_blank') %>
+  &nbsp;&nbsp;&nbsp;
+  <%= link_to('Attribution-NoDerivatives 4.0 International licence',
+              'https://creativecommons.org/licenses/by-nd/4.0/',
+              :class => 'icon icon-file', :target => '_blank') %>
+</div>
+<br/>
+
+<fieldset>
+  <legend><%= l(:label_setting_google_adsense) %></legend>
+
+  <p>
+    <label><%= l(:label_enabled) %>:</label>
+    <%= hidden_field_tag('settings[google_adsense_enabled]', 0) %>
+    <%= check_box_tag('settings[google_adsense_enabled]', 1,
+                      Ads::Setting.google_adsense_enabled, :autofocus => 'autofocus') %>
+  </p>
+
+  <p>
+    <label><%= l(:label_setting_google_adsense_client_id) %>:</label>
+    <%= text_field_tag('settings[google_adsense_client_id]',
+                       Ads::Setting.google_adsense_client_id,
+                       :size => 30) %>
+  </p>
+
+  <p>
+    <label><%= l(:label_setting_google_adsense_ad_id) %>:</label>
+    <%= text_field_tag('settings[google_adsense_sidebar_ad_id]',
+                       Ads::Setting.google_adsense_sidebar_ad_id) %>
+  </p>
+</fieldset>
+
+<fieldset>
+  <legend><%= l(:label_setting_google_analytics) %></legend>
+
+  <p>
+    <label><%= l(:label_enabled) %>:</label>
+    <%= hidden_field_tag('settings[google_analytics_enabled]', 0) %>
+    <%= check_box_tag('settings[google_analytics_enabled]', 1,
+                      Ads::Setting.google_analytics_enabled) %>
+  </p>
+
+  <p>
+    <label><%= l(:label_setting_google_analytics_id) %>:</label>
+    <%= text_field_tag('settings[google_analytics_id]',
+                       Ads::Setting.google_analytics_id) %>
+  </p>
+</fieldset>
+
+<fieldset>
+  <legend><%= l(:label_setting_infolinks) %></legend>
+
+  <p>
+    <label><%= l(:label_enabled) %>:</label>
+    <%= hidden_field_tag('settings[infolinks_enabled]', 0) %>
+    <%= check_box_tag('settings[infolinks_enabled]', 1,
+                      Ads::Setting.infolinks_enabled) %>
+  </p>
+
+  <p>
+    <label><%= l(:label_setting_infolinks_pid) %>:</label>
+    <%= text_field_tag('settings[infolinks_pid]',
+                       Ads::Setting.infolinks_pid) %>
+  </p>
+
+  <p>
+    <label><%= l(:label_setting_infolinks_wsid) %>:</label>
+    <%= text_field_tag('settings[infolinks_wsid]',
+                       Ads::Setting.infolinks_wsid) %>
+  </p>
+</fieldset>
+
+<fieldset>
+  <legend><%= l(:label_setting_patreon) %></legend>
+
+  <p>
+    <label><%= l(:label_enabled) %>:</label>
+    <%= hidden_field_tag('settings[patreon_enabled]', 0) %>
+    <%= check_box_tag('settings[patreon_enabled]', 1,
+                      Ads::Setting.patreon_enabled) %>
+  </p>
+
+  <p>
+    <label><%= l(:label_setting_patreon_id) %>:</label>
+    <%= text_field_tag('settings[patreon_id]',
+                       Ads::Setting.patreon_id) %>
+  </p>
+
+  <p>
+    <label><%= l(:label_setting_patreon_custom_message) %>:</label>
+    <%= text_field_tag('settings[patreon_custom_message]',
+                       Ads::Setting.patreon_custom_message) %>
+  </p>
+</fieldset>
+
+<fieldset>
+  <legend><%= l(:label_setting_ads_plugin_support) %></legend>
+
+  <p>
+    <label><%= l(:label_setting_how_much_support) %>:</label>
+    <%= range_field_tag('settings[plugin_support_chance]',
+                        Ads::Setting.plugin_support_chance,
+                        {:min => Ads::Setting.plugin_support_chance(:min),
+                         :max => Ads::Setting.plugin_support_chance(:max),
+                         :onchange => "chance.value = this.value;"}) %>
+    <em>
+      <%= raw(l(:label_setting_plugin_support_explanation,
+                :chance => "<output id=\"chance\">#{Ads::Setting.plugin_support_chance}</output>")) %>
+    </em>
+  </p>
+
+</fieldset>
