@@ -1,0 +1,99 @@
+-#
+-# Redhopper - Kanban boards for Redmine, inspired by Jira Agile (formerly known as
+-# Greenhopper), but following its own path.
+-# Copyright (C) 2015-2017 infoPiiaf <contact@infopiiaf.fr>
+-#
+-# This file is part of Redhopper.
+-#
+-# Redhopper is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as
+-# published by the Free Software Foundation, either version 3 of the
+-# License, or (at your option) any later version.
+-#
+-# Redhopper is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with Redhopper.  If not, see <http://www.gnu.org/licenses/>.
+-#
+- sortable = kanban.sortable?
+- comments = kanban.comments
+- issue = kanban.issue
+- color = kanban.tracker_color
+%li{id: "issue-#{issue.id}-kanban-#{kanban.id}", class: 'Kanban', draggable: sortable ? "true" : "false"}
+	/
+		Redmine needs a tr for its contextual menu.
+		So here is the whole table package…
+	%table
+		%tbody
+			%tr.hascontextmenu{class: kanban.highlight_class, style: "border-top: 3px solid #{color}"}
+				%td
+					%input{type: "checkbox", name: "ids[]", value: issue.id}
+					.issue-id{style: "color:#{color}"}
+						= issue.tracker.name unless @hide_tracker
+						= "##{issue.id}"
+					- if sortable
+						.sortable
+							- unless kanban_iteration.first?
+								= link_to (tag :img, src: '/images/2uparrow.png', alt: t('.move2top_arrow')), move_redhopper_issue_path(id: kanban.id, target_id: first_kanban.id, insert: "before"), method: :post, title: t('.move2top')
+								- previous_kanban = kanbans[kanban_iteration.index - 1]
+								= link_to (tag :img, src: '/images/1uparrow.png', alt: t('.moveup_arrow')), move_redhopper_issue_path(id: kanban.id, target_id: previous_kanban.id, insert: "before"), method: :post, title: t('.moveup')
+							- unless kanban_iteration.last?
+								- next_kanban = kanbans[kanban_iteration.index + 1]
+								= link_to (tag :img, src: '/images/1downarrow.png', alt: t('.moveup_arrow')), move_redhopper_issue_path(id: kanban.id, target_id: next_kanban.id, insert: "after"), method: :post, title: t('.movedown')
+								= link_to (tag :img, src: '/images/2downarrow.png', alt: t('.move2bottom_arrow')), move_redhopper_issue_path(id: kanban.id, target_id: last_kanban.id, insert: "after"), method: :post, title: t('.move2bottom')
+							- if @can_unsort
+								= link_to (tag :img, src: '/images/bullet_diamond.png', alt: t('.goto_unsorted')), delete_redhopper_issue_path(id: kanban.id), method: :delete, title: t('.goto_unsorted')
+					- else
+						.unsortable
+							= link_to t('.goto_sorted'), create_redhopper_issue_path(issue_id: issue.id), method: :post
+					%p= link_to issue.subject, issue
+					- if kanban.blocking_issue?
+						- kanban.blocked_issues.each do |blocker|
+							%p.icon.icon-exclamation.blocker
+								= t('.blocks')
+								= link_to("##{blocker.id}.", blocker, title: blocker.subject)
+					- if kanban.blocked_with_issues?
+						- kanban.blockers.each do |blocker|
+							%p.icon.icon-exclamation.blocker
+								= t('.blocked_by')
+								= link_to("##{blocker.id}.", blocker, title: blocker.subject)
+					- if kanban.blocked_with_comment?
+						- if comment_to_show = comments.last
+							%div.icon.icon-exclamation.blocker
+								= t('.blocked_by')
+								%div.tooltip{style: 'display:inline-block;'}
+									= link_to t('.last_note'), issue_path(issue, anchor: "note-#{issue.journals.visible.count}")
+									%span.tip
+										= textilizable(comment_to_show.notes)
+								= link_to t('.unblock'), unblock_redhopper_issue_path(id: kanban.id), method: :delete
+					- elsif sortable && comments.count > 0
+						= link_to block_redhopper_issue_path(id: kanban.id), method: :post, title: t('.block_with') + t('.last_note') do
+							= tag :img, src: '/plugin_assets/redhopper/images/exclamation-disabled.png', alt: t('.block_with') + t('.last_note')
+					- if due_delta = kanban.due_delta
+						.issue-due-before{title: t(due_delta.title) ,class: due_delta.css_class}= due_delta.abs_value + t('.due_unit')
+					.meta-data
+						- unless (desc = issue.description).blank?
+							- if @description_tooltip
+								%div.tooltip{style: 'display:inline-block;'}
+									= link_to '<span class="icon icon-issue"></span>'.html_safe, '#'
+									%span.tip
+										= textilizable(desc)
+							- else
+								%span.icon.icon-issue{title: t('.description')}
+						- unless comments.empty?
+							%span.icon.icon-comment{title: t('.notes_count')}= comments.count
+						- unless issue.attachments.empty?
+							%span.icon.icon-attachment{title: t('.attachments_count')}= issue.attachments.count
+						- unless (assignee = issue.assigned_to).nil?
+							%span.icon.icon-user{title: t('.assigned_user')}
+								- if assignee.is_a?(Group)
+									%span{title: assignee.name}= assignee.name
+								- elsif Setting.gravatar_enabled?
+									= avatar(assignee, title: assignee.name(:firstname_lastname))
+								- else
+									%span{title: assignee.name(:firstname_lastname)}= assignee.name
+
+%hr{id: "kanban-#{kanban.id}-after", class: 'Column-dropzone'}
