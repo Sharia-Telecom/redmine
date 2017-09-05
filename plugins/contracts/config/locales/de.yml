@@ -1,0 +1,95 @@
+# German strings go here for Rails i18n
+de:
+  project_module_contracts: Verträge
+  permission_view_all_contracts_for_project: Alle Verträge für Projekt anzeigen
+  permission_view_contract_details: Vertragsdetails anzeigen
+  permission_edit_contracts: Verträge bearbeitn
+  permission_create_contracts: Verträge erstellen
+  permission_delete_contracts: Verträge öschen
+  permission_view_hourly_rate: Stundensatz
+  permission_create_expenses: Ausgabe erstellen
+  permission_edit_expenses: Ausgaben bearbeiten
+  permission_delete_expenses: Ausgaben löschen
+  permission_view_expenses: Ausgaben anzeigen
+
+
+  contracts: Verträge
+  label_contracts: Verträge
+  label_contract: Vertrag
+  label_new_contract: Neuer Vertrag
+  label_editing_contract: Vertrag bearbeiten
+  label_add_time_entries: Zeiten zuordnen
+  label_add_expense: Ausgabe hinzufügen
+  label_log_time: Zeit stoppen
+  label_edit: bearbeiten
+  label_delete: löschen
+  label_view_contract: Vertrag anzeigen
+  label_view_invoice: Rechnung anzeigen
+  label_date_period: Vertragszeitraum
+  label_amount_purchased: bezahlter Betrag
+  label_invoice: Rechnung
+  label_members: Mitglieder
+  label_hours: Stunden
+  label_contractor_rate: Preis pro Stunde
+  label_billable_amount: Abrechenbarer Betrag
+  label_time_entries: gebuchte Zeiten
+  label_add_to_contract: dem Vertrag zuordnen
+  label_date: Datum
+  label_current_contract: aktueller Vertrag
+  label_member: Mitglied
+  label_activity: Aktivität
+  label_issue: Ticket
+  label_comments: Kommentare
+  label_apply: Anwenden
+  label_name: Name
+  label_agreed_on: abgeschlossen am
+  label_purchased: vereinbart
+  label_remaining: verbleibend
+  label_hours_worked: gearbeitete Stunden
+  label_hours_left: "~verbleibende Stunden"
+  label_total_purchased: vereinbart für alle Verträge
+  label_total_remaining: verbleibend für alle Verträge
+  label_or: "-oder-"
+  label_create_contract: Vertrag anlegen
+  label_update_contract: Vertrag berarbeiten
+  label_contract_empty: kein Vertrag
+  label_select_contract: "[Vertrag auswählen]"
+  label_save_expense: Ausgabe speichern
+  label_expenses: Ausgaben
+  label_description: Beschreibung
+  label_amount: Betrag
+  label_edit_expense: Ausgabe bearbeiten
+  label_new_expense: Neue Ausgabe
+
+  text_are_you_sure_delete_title: "Sind sie sicher das Sie %{value} löschen möchten?"
+  text_are_you_sure_delete_time_entry: "Sind Sie sicher, dass sie diesen Zeiteintrag löschen möchten?"
+  text_are_you_sure_delete_expense: "Sind Sie sicher, dass sie diese Ausgabe löschen wollen?"
+  text_time_exceeded_time_remaining: "Dieser Zeiteintrag überschreitet die verbeleibende Zeit im Vertrag um %{hours_over} Stunden.\nUm im Vertragsrahmen zu bleiben ändern Sie bitte den Eintrag auf nicht mehr als %{hours_remaining} Stunden."
+  text_must_come_after_agreement_date: muss nach dem Vertragsdatum liegen
+  text_must_come_after_start_date: muss nach dem Startdatum des Vertrages liegen
+  text_contract_saved: Der Vertrag wurde erfolgreich gespeichert!
+  text_contract_updated: Der Vertrag wurde erfolgreich aktualisiert!
+  text_contract_deleted: Der Vertrag wurde erfolgreich gelöscht
+  text_hours_over_contract: "Das vereinbarte Stundenkontingent wird um %{hours_over} Stunden überschritten"
+  text_invalid_rate: "Preis pro Stunde muss gr&ouml;&szlig;er oder gleich Null sein."
+  text_invalid_issue_id: "ist keine gültige Ticket-ID"
+  text_expense_created: "Ausgabe wurde erfolgreich erstellt."
+  text_expense_updated: "Ausgabe wurde erfolgreich aktualisiert."
+  text_na: "keine Angabe"
+
+  field_contract: Vertrag
+  field_title: Titel
+  field_description: Beschreibung
+  field_agreement_date: Vertragsdatum
+  field_start_date: Beginn
+  field_end_date: Ende
+  field_purchase_amount: Summe
+  field_hourly_rate: Stundensatz
+  field_contract_url: Vertrags-URL
+  field_invoice_url: Rechnungs-URL
+
+  field_expense_name: Name
+  field_expense_date: Datum für Ausgabe
+  field_amount: Betrag
+  field_expense_contract: Vertrag
+  field_issue: Ticket (ID)
