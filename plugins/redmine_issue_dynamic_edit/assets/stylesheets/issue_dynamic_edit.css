@@ -1,0 +1,87 @@
+div.issue .attribute .value, div.issue .splitcontent {
+	overflow: visible;
+	position: relative;
+}
+
+div.issue .attribute .value .percent {
+	display: inline-block;
+}
+
+/* Progress bar fix */
+table.progress {
+	margin-right: 10px;
+}
+
+.attribute .error {
+	color: #e74c3c;
+	margin-left: 3px;
+}
+
+.value .fa-pencil {
+	opacity: 0;
+}
+
+.issue.details .showValue {
+	cursor: pointer;
+}
+
+.issue.details:hover .fa-pencil {
+	opacity: 1;
+}
+
+.dynamicEdit {
+	display: inline-block;
+	position:absolute;
+	opacity: 0;
+	left:0;
+	bottom: 100%;
+	margin-bottom: 5px;
+	box-sizing: border-box;
+	padding: 10px;
+	border-radius: 3px;
+	background: white;
+	pointer-events: none;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	width: max-content;
+}
+
+.edited .dynamicEdit {
+	pointer-events: auto;
+}
+
+div.issue .attribute .value.edited .dynamicEdit {
+	opacity: 1;
+}
+
+.attribute .btn-primary {
+	padding: 4px;
+	color: white;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+.attribute .btn-primary.close {
+	background: #c0392b;
+}
+
+.attribute .btn-primary.validate {
+	background: #27ae60;
+}
+
+.dynamicEdit select {
+	border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: inherit;
+    font-family: inherit;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.dynamicEdit select option[disabled="disabled"]
+{ 
+    display:none;
+}
