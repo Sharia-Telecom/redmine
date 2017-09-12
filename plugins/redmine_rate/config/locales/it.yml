@@ -1,0 +1,29 @@
+it:
+  billable_default_info: If active, all time log entries will be activated as "billable". In case the user has not the right to activate "billable" all time log entries will be automatically selected as "billable".
+  field_billable: Billable
+  field_cost: Spesa
+  label_rate_cost: Spesa
+  label_billable_default: Default billable
+  label_rate_caches: "Rate Caches"
+  label_rate_plural: Rates
+  label_rate: Rate
+  label_total_cost: Costs with subtasks
+  permission_activate_billable: Activate billable
+  permission_view_rate: Mostra rata
+  rate_created_message: Rata creazione effettuata.
+  rate_error_creating_new_rate: Impossibile creare un nuova rata.
+  rate_error_user_not_found: Utenti non trovati
+  rate_label_currency: Valuta
+  rate_label_default: Rata standard
+  rate_label_edit_rate: Modifica rata
+  rate_label_new_rate: Nuova rata
+  rate_label_rate_history: Rate History
+  rate_label_set_rate: Set rata
+  rate_locked_message:  Rate is locked and cannot be edited
+  rate_updated_message: Rate modifica effettuata.
+  text_caches_loaded_successfully: "Caches loaded successfully"
+  text_clear_and_load_all_caches: "Clear and load all caches"
+  text_last_cache_clearing_run: "Last cache clearing run at: "
+  text_last_caching_run: "Last caching run at: "
+  text_load_missing_caches: "Load missing caches"
+  text_no_cache_run: "no cache run found"
