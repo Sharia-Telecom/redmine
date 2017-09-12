@@ -155,6 +155,11 @@ gem "encryptor"
 gem "gemoji", "~> 3.0.0"
 gem "letter_opener", "~> 1.4.0"
 gem "letter_opener_web", "~> 1.3.0"
+gem "oauth2"
+gem "addressable"
+gem "faraday"
+gem "multi_json"
+gem "multipart-post"
 end
 
 group :xapian do
