@@ -1,0 +1,42 @@
+<%= form_tag({}) do -%>
+<%= hidden_field_tag 'back_url', url_for(params), :id => nil %>
+<div class="autoscroll">
+  <table class="list material_cycles issues">
+    <thead>
+      <tr>
+        <th class="checkbox hide-when-print">
+          <%= check_box_tag 'check_all', '', false, :class => 'toggle-selection',
+                :title => "#{l(:button_check_all)}/#{l(:button_uncheck_all)}" %>
+        </th>
+        <th>#</th>
+        <% @query.inline_columns.each do |column| %>
+          <%= Redmine::VERSION.to_s >= '3.4' ? column_header(@query, column) : column_header(column) %>
+        <% end %>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% material_cycles.each do |material_cycle| -%>
+      <tr id="material_cycle-<%= material_cycle.id %>" class="material_cycle <%= cycle('odd', 'even') %>">
+        <td class="checkbox hide-when-print"><%= check_box_tag("ids[]", material_cycle.id, false, :id => nil) %></td>
+        <td class="id"><%= link_to material_cycle.id, project_material_material_cycle_path(material_cycle.project, material_cycle.material, material_cycle) %></td>
+        <%= raw @query.inline_columns.map {|column| "<td class=\"#{column.css_classes}\">#{column_content(column, material_cycle)}</td>"}.join %>
+        <td class="buttons">
+        <% if material_cycle.editable_by?(User.current) -%>
+          <%= link_to image_tag('edit.png'), edit_project_material_material_cycle_path(material_cycle.project, material_cycle.material, material_cycle),
+                                             :title => l(:button_edit) %>
+        <% end %>
+        <% if material_cycle.destroyable_by?(User.current) -%>                                             
+          <%= link_to image_tag('delete.png'), project_material_material_cycle_path(material_cycle.project, material_cycle.material, material_cycle),
+                                               :data => {:confirm => l(:text_are_you_sure)},
+                                               :method => :delete,
+                                               :title => l(:button_delete) %>
+        <% end -%>
+        </td>
+      </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>
+
+<% end -%>

@@ -1,0 +1,93 @@
+<div class="contextual">
+  <%= link_to l(:button_edit), {:controller => "materials", :action => "edit", :id => @material}, :class => 'icon icon-edit' if !@material.blank? && @material.editable_by?(User.current) %>
+  <%= link_to l(:button_add_sub), {:controller => "materials", :action => "new", :parent_id => @material}, :class => 'icon icon-add' if !@material.blank? && @material.creatable_by?(User.current, @project) %>
+  <%= link_to_if_authorized l(:button_duplicate), {:controller => 'materials', :action => 'new', :project_id => @project, :copy_from => @material }, :class => 'icon icon-duplicate' %>
+  <%= link_to l(:button_delete), {:controller => "materials", :action => "destroy", :id => @material}, :confirm => l(:text_are_you_sure), :method => :delete, :class => 'icon icon-del' if !@material.nil? && @material.destroyable_by?(User.current) %>
+  <%= link_to_if_authorized l(:label_material_cycle_entry), {:controller => "material_cycles", :action => "entry", :project_id => @project, :material_id => @material}, :class => 'icon icon-material-cycle-entry' if @material.can_cycle_entry? %>
+  <%= link_to_if_authorized l(:label_material_cycle_middle), {:controller => "material_cycles", :action => "middle", :project_id => @project, :material_id => @material}, :class => 'icon icon-material-cycle-middle' if @material.can_cycle_middle? %>
+  <%= link_to_if_authorized l(:label_material_cycle_exit), {:controller => "material_cycles", :action => "exit", :project_id => @project, :material_id => @material}, :class => 'icon icon-material-cycle-exit' if @material.can_cycle_exit? %>
+  <%= link_to_if_authorized l(:label_material_cycle), {:controller => "material_cycles", :action => "index", :project_id => @project, :material_id => @material}, :class => 'icon icon-material-cycle' %>
+</div>
+<h2>
+  <%= l(:label_material) %>
+</h2>
+
+<div class="issue details">
+  <div class="subject">
+  <h3>
+    <%= "#{l(:label_material)} ##{@material.id}" %>
+  </h3>
+  </div>
+  <p class="author">
+    <%= authoring @material.created_at, @material.author %>.
+    <% if @material.created_at != @material.updated_at %>
+      <%= l(:label_updated_time, time_tag(@material.updated_at)).html_safe %>.
+    <% end %>
+  </p>
+  
+  <<%= Redmine::VERSION.to_s > '3.2' ? 'div' : 'table' %> class="attributes">
+    <%= issue_fields_rows do |rows|
+      rows.left l(:field_inner_code), @material.inner_code
+      rows.right l(:field_material_name), @material.name
+      rows.left l(:field_parent_material), @material.parent_material.nil? ? "-" : link_to(@material.parent_material.name, project_material_path(@project, @material.parent_material))
+      rows.right l(:field_category), @material.category.present? ? material_category_tree_tag(@material) : "-" 
+      rows.left l(:field_brand), @material.brand
+      rows.right l(:field_amount), @material.amount
+      rows.left l(:field_original_value), @material.original_value
+      rows.right l(:field_current_value), @material.current_value
+      rows.left l(:field_user), "#{avatar(@material.user, :size => '14')}#{@material.user ? link_to_user(@material.user) : "-"}".html_safe
+      rows.right l(:field_use_since), @material.use_since && @material.use_since != "" ? format_time(@material.use_since) : "-"
+      rows.left l(:field_purchaser), "#{avatar(@material.purchaser, :size => '14')}#{@material.purchaser ? link_to_user(@material.purchaser) : "-"}".html_safe
+      rows.right l(:field_purchase_at), @material.purchase_at && @material.purchase_at != "" ? format_time(@material.purchase_at) : "-"
+      rows.left l(:field_location), @material.location
+      rows.right l(:field_location_since), @material.location_since && @material.location_since != "" ? format_time(@material.location_since) : "-"
+      rows.left l(:field_handover), "#{avatar(@material.handover, :size => '14')}#{@material.handover ? link_to_user(@material.handover) : "-"}".html_safe
+      rows.right l(:field_handover_at), @material.handover_at && @material.handover_at != "" ? format_time(@material.handover_at) : "-"
+      rows.left l(:field_owner), "#{avatar(@material.owner, :size => '14')}#{@material.owner ? link_to_user(@material.owner) : "-"}".html_safe
+      rows.right l(:field_responsible_by), "#{avatar(@material.responsible_by, :size => '14')}#{@material.responsible_by ? link_to_user(@material.responsible_by) : "-"}".html_safe
+      rows.left l(:field_status), @material.status_name
+      rows.right l(:field_property), @material.property_name
+      rows.left l(:field_device_no), @material.device_no
+      rows.right l(:field_remark), @material.remark
+    end %>
+  </<%= Redmine::VERSION.to_s > '3.2' ? 'div' : 'table' %>>
+  
+  <% if @material.detail? || (@material.respond_to?(:attachments) && @material.attachments && @material.attachments.any?) -%>
+  <hr />
+  <% if @material.detail? %>
+    <div class="description">
+      <p><strong><%=l(:field_detail)%></strong></p>
+      <div class="wiki">
+      <% attachments = nil %>
+      <% attachments = @material.attachments %>
+      <%= textilizable @material, :detail, :attachments => attachments %>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to_attachments @material, :thumbnails => true %>
+<% end -%>
+</div>
+
+<div id="comments" style="margin-bottom:16px;">
+<h3 class="comments"><%= l(:label_comment_plural) %></h3>
+<% @comments.each do |comment| %>
+    <% next if comment.new_record? %>
+    <div class="contextual">
+    <%= link_to_if_authorized image_tag('delete.png'), {:controller => 'material_comments', :action => 'destroy', :id => @material, :comment_id => comment},
+                                                       :data => {:confirm => l(:text_are_you_sure)}, :method => :delete, :title => l(:button_delete) %>
+    </div>
+    <h4><%= avatar(comment.author, :size => "24") %><%= authoring comment.created_on, comment.author %></h4>
+    <%= textilizable(comment.comments) %>
+<% end if @comments.any? %>
+</div>
+
+<% if @material.commentable? %>
+  <p><%= toggle_link l(:label_comment_add), "add_comment_form", :focus => "comment_comments" %></p>
+  <%= form_tag({:controller => 'material_comments', :action => 'create', :id => @material}, :id => "add_comment_form", :style => "display:none;") do %>
+    <div class="box">
+        <%= text_area 'comment', 'comments', :cols => 80, :rows => 15, :class => 'wiki-edit' %>
+        <%= wikitoolbar_for 'comment_comments' %>
+    </div>
+    <p><%= submit_tag l(:button_add) %></p>
+  <% end %>
+<% end %>

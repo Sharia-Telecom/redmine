@@ -1,0 +1,190 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  label_materials: Materials
+  label_material: Material
+  label_material_plural: Materials
+  
+  label_material_belong: Belongs to 
+  
+  field_name: Name
+  field_material_name: Name
+  field_inner_code: Inner Code
+  field_parent_material: Parent Material
+  field_brand: Brand
+  field_category: Category
+  field_amount: Amount
+  field_original_value: Original Value
+  field_current_value: Current Value
+  field_purchaser: Purchaser
+  field_purchase_at: Purchase At
+  field_device_no: Manufacturer code
+  field_property: Property
+  field_property_name: Property
+  field_handover: Handover(prior user)
+  field_handover_at: Handover At
+  field_user: User(current user)
+  field_use_since: Use since
+  field_location: Location
+  field_location_since: Locate Since
+  field_owner: Owner
+  field_responsible_by: Responsible By
+  field_author: Author
+  field_remark: Remark
+  field_status: Status
+  field_status_name: Status
+  field_project: Project
+  field_detail: Details
+  
+  label_material_new: New Material
+  label_material_edit: Edit Material
+  
+  label_material_cycle_issue: MaterialCycle's issue tracker
+
+  notice_material_create_success: Material created successful
+  notice_material_create_fail: Material created fail
+  notice_material_del_success: Material deleted successful
+  notice_material_del_fail: Material deleted fail
+  notice_material_update_success: Material updated successful
+  notice_material_update_fail: Material updated fail
+  
+  project_module_redmine_materials: Material
+  
+  permission_new_materials: Add Material
+  permission_show_materials: Show Material
+  permission_edit_materials: Edit Material
+  permission_delete_materials: Delete Material
+  permission_import_materials: Import Material
+  
+  permission_comment_materials: Comment Materials
+  permission_delete_material_comments: Delete Material Comments
+  
+  permission_new_material_cycles: Add Material Cycle
+  permission_show_material_cycles: Show Material Cycle
+  permission_edit_material_cycles: Edit Material Cycle
+  permission_delete_material_cycles: Delete Material Cycle
+  
+  label_material_categories: Categories
+  label_material_category: Category
+  label_material_category_new: New Category
+  text_material_category_destroy_question: "Some materials (%{count}) are assigned to this category. What do you want to do?"
+  text_material_category_reassign_to: Reassign materials to this category
+
+  field_material_category: Category
+  field_material_category_code: Code
+  field_material_category_parent_id: Parent Category
+  
+  label_material_show_in_top_menu: Show in top menu
+  
+  label_import_materials: Import Material
+  
+  button_add_sub: Add Child
+  
+  label_material_status_normal: Normal Usable
+  label_material_status_useless: Useless to Discard
+  label_material_status_lock: Lock
+  label_material_status_other: Other
+  
+  label_material_property_inner: Inner
+  label_material_property_outside: Outside
+  label_material_property_personal: Person
+  label_material_property_other: Other
+  
+  label_warehouses: Warehouses
+  label_warehouse: Warehouse
+  
+  label_warehouse_new: New Warehouse
+  
+  field_warehouse_code: Code
+  field_warehouse_name: Name
+  field_warehouse_type: Type
+  field_found_date: Found At
+  
+  label_warehouse_type_inner: Inner
+  label_warehouse_type_virtual: Virtual
+  label_warehouse_type_outer: Outer
+  label_warehouse_type_rent: Rent
+  label_warehouse_type_temp: Temp
+  label_warehouse_type_other: Other
+  
+  label_warehouse_status_normal: Normal
+  label_warehouse_status_lock: Lock
+  
+  label_material_cycles: Material Life Cycles
+  label_material_cycle: Material Life Cycle
+  label_material_cycle_plural: Material Life Cycles
+
+  label_material_cycle_new: New Material Cycle
+  label_material_cycle_edit: Edit Material Cycle
+  label_material_cycle_delete: Delete Material Cycle
+  label_material_cycle_entry: Initial Enter
+  label_material_cycle_middle: Middle Transfer
+  label_material_cycle_exit: Final Exit
+  
+  field_material: Material
+  field_stage: Stage
+  field_stage_name: Stage
+  field_event_type: Event Type
+  field_type_name: Event Type
+  field_material: Material
+  field_outsider: Outsider
+  field_order_no: Business Order No
+  field_direction: Direction
+  field_direction_name: Direction
+  field_value: Value
+  field_purpose: Purpose
+  field_purpose_name: Purpose
+  field_warehouse: Warehouse
+  
+  label_material_cycle_stage_entry: Enter
+  label_material_cycle_stage_middle: Middle Process
+  label_material_cycle_stage_exit: Exit
+  
+  label_material_cycle_event_type_buy_in: Buy In
+  label_material_cycle_event_type_sell_out: Sell Out
+  label_material_cycle_event_type_rent: Rent
+  label_material_cycle_event_type_rent_out: Rent Out
+  label_material_cycle_event_type_borrow: Borrow
+  label_material_cycle_event_type_loan: Loan
+  label_material_cycle_event_type_stock_in: Stock In
+  label_material_cycle_event_type_stock_out: Stock Out
+  label_material_cycle_event_type_get: Get
+  label_material_cycle_event_type_give: Give
+  label_material_cycle_event_type_scrap: Scrap
+  label_material_cycle_event_type_loss: Loss
+  label_material_cycle_event_type_return: Return
+  label_material_cycle_event_type_transfer: Transfer
+  label_material_cycle_event_type_discard: Discard
+  label_material_cycle_event_type_lock: Lock
+  label_material_cycle_event_type_unknown: Unknown
+  
+  label_material_cycle_purpose_usage: Usage
+  label_material_cycle_purpose_store: Store
+  label_material_cycle_purpose_maintain: Maintain
+  label_material_cycle_purpose_repair: Repair
+  label_material_cycle_purpose_unknown: Unknown
+
+  label_material_cycle_direction_from: From
+  label_material_cycle_direction_to: To
+  label_material_cycle_direction_undef: Undefine
+  
+  notice_material_cycle_create_success: Material cycle created successful
+  notice_material_cycle_create_fail: Material cycle created fail
+  notice_material_cycle_del_success: Material cycle deleted successful
+  notice_material_cycle_del_fail: Material cycle deleted fail
+  notice_material_cycle_update_success: Material cycle updated successful
+  notice_material_cycle_update_fail: Material cycle updated fail
+
+  label_material_cycle_nil_issue_subject: Material in the lifecycle
+  label_material_cycle_entry_issue_subject: Material initial entered to the lifecycle
+  label_material_cycle_middle_issue_subject: Material internal transfered
+  label_material_cycle_exit_issue_subject: Material final exited from the lifecycle
+  
+  label_comma_char: Comma
+  label_semi_colon_char: Semi colon
+  label_quote_char: Quote
+  label_double_quote_char: Double quote
+  label_fields_mapping: Fields mapping
+  label_file_content_preview: File content preview
+
+  label_csv_import: Csv Import
