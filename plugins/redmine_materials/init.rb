@@ -36,7 +36,7 @@ Redmine::Plugin.register :redmine_materials do
     User.current.allowed_to?({:controller => 'materials', :action => 'index'}, nil, {:global => true}) && RedmineMaterials.settings[:show_in_top_menu].to_i > 0
   }
   
-  menu :admin_menu, :materials, {:controller => 'settings', :action => 'plugin', :id => "redmine_materials"}, :caption => :label_materials
+  menu :admin_menu, 'icon materials', {:controller => 'settings', :action => 'plugin', :id => "redmine_materials"}, :caption => :label_materials
   
   menu :project_menu, :materials, {:controller => 'materials', :action => 'index'}, :caption => :label_materials, :param => :project_id
 
