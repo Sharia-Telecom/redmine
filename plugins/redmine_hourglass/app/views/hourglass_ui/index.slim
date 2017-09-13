@@ -1,0 +1,14 @@
+= render layout: 'hourglass_ui/layouts/hourglass' do
+
+  - html_title t('hourglass.ui.index.title')
+
+  - if policy(Hourglass::TimeTracker).start?
+    = render partial: 'time_tracker_control'
+
+  - if policy(Hourglass::TimeLog).view?
+    h3 = t('hourglass.ui.index.headings.time_logs')
+    = render partial: 'hourglass_ui/lists/list', locals: {list_arguments: @time_log_list_arguments}
+
+  - if policy(Hourglass::TimeBooking).view?
+    h3 = t('hourglass.ui.index.headings.time_bookings')
+    = render partial: 'hourglass_ui/lists/list', locals: {list_arguments: @time_booking_list_arguments}
