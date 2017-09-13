@@ -184,7 +184,6 @@ end
 group :development do
 gem "rdoc", "~> 4.3"
 gem "yard"
-gem "sass", "~> 3.4.15"
 gem "copyright-header", "~> 1.0.8"
 gem "rubocop", :require => false
 end
