@@ -160,6 +160,21 @@ gem "addressable"
 gem "faraday"
 gem "multi_json"
 gem "multipart-post"
+#asset pipeline
+gem "uglifier"
+gem "coffee-script"
+gem "sass", "~> 3.4.15"
+# access control
+gem "pundit"
+# this is useful for unix based systems which don't have a js runtime installed
+# if you are on windows and this makes problems, simply remove the line
+gem "therubyracer", :platform => :ruby
+#views
+gem "slim"
+gem "js-routes", "~> 1.3"
+gem "momentjs-rails", ">= 2.10.7"
+gem "rswag" # api docs
+gem "rspec-core"
 end
 
 group :xapian do
@@ -205,6 +220,10 @@ gem "database_cleaner", "1.5.1"
 gem "minitest-around"
 gem "minitest-reporters"
 gem "brakeman"
+gem "rubycritic", :require => false
+gem "rspec-rails", "~> 3.5", ">= 3.5.2"
+gem "zonebie"
+gem "faker", "1.7.3"
 end
 
 local_gemfile = File.join(File.dirname(__FILE__), "Gemfile.local")
