@@ -1,0 +1,1 @@
+JSON schemas from Redmine Docson plugin goes here.
