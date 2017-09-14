@@ -1,0 +1,1 @@
+emoji images from Additionals plugin goes here.
