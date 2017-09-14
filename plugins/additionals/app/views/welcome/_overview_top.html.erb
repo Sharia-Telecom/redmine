@@ -1,0 +1,8 @@
+<%
+overview_top = Additionals.settings[:overview_top]
+unless overview_top.blank?
+%>
+<div class="overview-top wiki box">
+  <%= textilizable(overview_top) %>
+</div>
+<% end %>
