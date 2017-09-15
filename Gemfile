@@ -178,7 +178,7 @@ gem "rspec-core"
 end
 
 group :xapian do
-#gem "xapian-full-alaveteli", :require => false
+gem "xapian-full-alaveteli", :require => false
 end
 
 group :development do
