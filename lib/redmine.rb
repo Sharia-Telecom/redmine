@@ -207,7 +207,7 @@ Redmine::MenuManager.map :application_menu do |menu|
     :permission => nil,
     :caption => :label_project_plural
   menu.push :activity, {:controller => 'activities', :action => 'index'},
-    :if => Proc.new {User.current.logged? && User.current.allowed_to?},
+    :if => Proc.new {User.current.logged? && User.current.allowed_to?}
   menu.push :issues, {:controller => 'issues', :action => 'index'},
     :if => Proc.new {User.current.logged? && User.current.allowed_to?(:view_issues, nil, :global => true)},
     :caption => :label_issue_plural
@@ -216,7 +216,7 @@ Redmine::MenuManager.map :application_menu do |menu|
     :caption => :label_spent_time
   menu.push :gantt, { :controller => 'gantts', :action => 'show' },
     :if => Proc.new {User.current.logged? && User.current.allowed_to?(:view_gantt, nil, :global => true)}
-    :caption => :label_gantt,
+    :caption => :label_gantt
   menu.push :calendar, { :controller => 'calendars', :action => 'show' }, :caption => :label_calendar,
     :if => Proc.new {User.current.logged? && User.current.allowed_to?(:view_calendar, nil, :global => true)}
   menu.push :news, {:controller => 'news', :action => 'index'},
