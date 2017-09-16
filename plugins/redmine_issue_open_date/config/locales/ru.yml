@@ -1,0 +1,6 @@
+ru:
+  field_open_date: Открыть заново
+  issue_open_date:
+    freezed_statuses: 'Статус "Заморожена"'
+    open_status: 'Открывать со статусом'
+    required: "Необходимо выбрать статусы в обеих секциях"
