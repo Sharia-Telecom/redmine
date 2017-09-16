@@ -203,23 +203,24 @@ end
 
 Redmine::MenuManager.map :application_menu do |menu|
   menu.push :projects, {:controller => 'projects', :action => 'index'},
-    :if => Proc.new {User.current.allowed_to? && User.current.logged?},
+    :if => Proc.new {User.current.logged? && User.current.allowed_to?},
     :permission => nil,
     :caption => :label_project_plural
   menu.push :activity, {:controller => 'activities', :action => 'index'},
-    :if => Proc.new {User.current.allowed_to? && User.current.logged?},
-  menu.push :issues,   {:controller => 'issues', :action => 'index'},
-    :if => Proc.new {User.current.allowed_to?(:view_issues, nil, :global => true) && User.current.logged?},
+    :if => Proc.new {User.current.logged? && User.current.allowed_to?},
+  menu.push :issues, {:controller => 'issues', :action => 'index'},
+    :if => Proc.new {User.current.logged? && User.current.allowed_to?(:view_issues, nil, :global => true)},
     :caption => :label_issue_plural
   menu.push :time_entries, {:controller => 'timelog', :action => 'index'},
-    :if => Proc.new {User.current.allowed_to?(:view_time_entries, nil, :global => true) && User.current.logged?},
+    :if => Proc.new {User.current.logged? && User.current.allowed_to?(:view_time_entries, nil, :global => true)},
     :caption => :label_spent_time
-  menu.push :gantt, { :controller => 'gantts', :action => 'show' }, :caption => :label_gantt,
-    :if => Proc.new {User.current.allowed_to?(:view_gantt, nil, :global => true) && User.current.logged?}
+  menu.push :gantt, { :controller => 'gantts', :action => 'show' },
+    :if => Proc.new {User.current.logged? && User.current.allowed_to?(:view_gantt, nil, :global => true)}
+    :caption => :label_gantt,
   menu.push :calendar, { :controller => 'calendars', :action => 'show' }, :caption => :label_calendar,
-    :if => Proc.new {User.current.allowed_to?(:view_calendar, nil, :global => true) && User.current.logged?}
+    :if => Proc.new {User.current.logged? && User.current.allowed_to?(:view_calendar, nil, :global => true)}
   menu.push :news, {:controller => 'news', :action => 'index'},
-    :if => Proc.new {User.current.allowed_to?(:view_news, nil, :global => true) && User.current.logged?},
+    :if => Proc.new {User.current.logged? && User.current.allowed_to?(:view_news, nil, :global => true)},
     :caption => :label_news_plural
 end
 
