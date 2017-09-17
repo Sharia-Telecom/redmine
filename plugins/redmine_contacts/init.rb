@@ -26,7 +26,7 @@ CONTACTS_VERSION_TYPE = "Light version"
 
 if ActiveRecord::VERSION::MAJOR >= 4
   require 'csv'
-  FCSV ||= CSV
+  FCSV = CSV
 end
 
 Redmine::Plugin.register :redmine_contacts do
