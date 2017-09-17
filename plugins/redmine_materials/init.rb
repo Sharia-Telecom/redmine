@@ -2,7 +2,7 @@ require 'redmine'
 
 if ActiveRecord::VERSION::MAJOR >= 4
   require 'csv'
-  FCSV ||= CSV
+  FCSV = CSV
 end
 
 Redmine::Plugin.register :redmine_materials do
