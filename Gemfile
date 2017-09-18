@@ -175,6 +175,8 @@ gem "js-routes", "~> 1.3"
 gem "momentjs-rails", ">= 2.10.7"
 gem "rswag" # api docs
 gem "rspec-core"
+gem "zeroclipboard-rails", "0.1.1"
+gem "iconv"
 end
 
 group :xapian do
