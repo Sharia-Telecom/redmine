@@ -1,3 +1,0 @@
-module RedmineIssuesTree
-  # doomed
-end
