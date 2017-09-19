@@ -177,6 +177,7 @@ gem "rswag" # api docs
 gem "rspec-core"
 gem "zeroclipboard-rails", "0.1.1"
 gem "iconv"
+gem "httparty", "~> 0.13.7"
 end
 
 group :xapian do
