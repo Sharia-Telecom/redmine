@@ -1,5 +1,0 @@
-module WklocationHelper
-include WktimeHelper
-include WkinvoiceHelper
-include WkcrmenumerationHelper
-end
