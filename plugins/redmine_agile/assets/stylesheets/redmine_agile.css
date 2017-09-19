@@ -8,10 +8,10 @@
 /* FULLSCREEN
 /**********************************************************************/
 html {
-  overflow-y: inherit !important;
+  overflow-y: visible;
 }
 html.agile-board-fullscreen {
-  overflow: hidden;
+  overflow: visible;
 }
 
 html.agile-board-fullscreen div.agile-board {
