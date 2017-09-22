@@ -1,91 +1,91 @@
 # English strings go here for Rails i18n
 en:
   label_vault: 'Vault'
-  label_module: '密钥'
+  label_module: 'Keys'
   settings:
-    title: "Vault选项"
-    vault_title_encription_key: "密钥"
-    redmine_title_encription_key: "使用Redmine加密法"
-    vault_encription_notice: "只用Vault加密法有效"
-    redmine_encryption_notice: "推荐选项。 请记得设置密钥database_cipher_key在config/configuration.yml文件。 注意: 修改这选项后，记得执行rake redmine:plugins:vault:convert。"
+    title: "Vault settings"
+    vault_title_encription_key: "Encryption key"
+    redmine_title_encription_key: "Use Redmine encryption"
+    vault_encription_notice: "Used only by Vault encryption method"
+    redmine_encryption_notice: "Recommended. Don't forget to put your key into database_cipher_key in config/configuration.yml. IMPORTANT: run rake redmine:plugins:vault:convert after changing this switch."
 
   backups:
-    title: "密钥备份"
-    title_restore: "恢复备份"
+    title: "Backup keys"
+    title_restore: "Restore from backup"
     btn:
-      download_backup: "下载备份文件"
-      upload_backup: "上传备份文件"
+      download_backup: "Download backup"
+      upload_backup: "Restore from backup"
 
   export:
     title:
       pdf: "PDF"
-
     pdf:
-      title: "密钥"
+      title: "keys"
 
   tag:
-      title:
-        popular: "常用标签"
+    title:
+      popular: "Popular Tags"
+
   key:
     title:
-      delete: "删除密钥"
-      edit: "修改密钥"
-      copy: "复制密钥"
-      clone: "克隆密钥"
-      show: "密钥详细"
-      new: "新建密钥"
-      list: "密钥列表"
+      delete: "Delete Key"
+      edit: "Editing Key"
+      copy: "Copy Key"
+      clone: "Clone Key"
+      show: "Showing Key"
+      new: "New Key"
+      list: "Listing Keys"
 
     btn:
-      new: "新建密钥"
-      actions: "操作"
-      clipboard: "复制到剪贴板中"
+      new: "New Key"
+      actions: "Actions"
+      clipboard: "Copy to clipboard"
 
     attr:
-      lock: "锁"
-      owner: "所有人"
-      body: "密钥"
-      name: "名称"
-      login: "用户名"
+      lock: "Lock"
+      owner: "Owner"
+      body: "Key"
+      name: "Name"
+      login: "Login"
       url: "URL"
-      type: "类型"
-      tags: "标签"
-      file: "密钥文件"
-      comment: "备注"
-      whitelist: "访问表"
+      type: "Type"
+      tags: "Tags"
+      file: "Key File"
+      comment: "Comment"
+      whitelist: "Access list"
 
     whitelist:
-      selected_members: "已选成员"
-      available_members: "可选成员"
+      selected_members: "Selected Members"
+      available_members: "Available Members"
 
   context_menu:
-      copy_key: "复制密钥"
-      copy_url: "复制URL"
-      copy_login: "复制用户名"
-      delete: "删除密钥"
-      edit: "修改密钥"
-      clone: "克隆密钥"
+    copy_key: "Copy Key"
+    copy_url: "Copy URL"
+    copy_login: "Copy Login"
+    delete: "Delete Key"
+    edit: "Edit Key"
+    clone: "Clone Key"
 
   alert:
     key:
-      not_found: "密钥不存在"
+      not_found: "Key not found"
 
   confirm:
     key:
-      delete: "确定要删除该密钥吗？"
+      delete: "Do you want to delete this key?"
 
   notice:
     settings:
-      saved: "选项已存储"
-      keys_restore: "密钥已恢复"
+      saved: "Settings saved"
+      keys_restore: "Keys restored"
     key:
       update:
-        success:  "成功修改密钥"
+        success: "Key was successfully modified"
       delete:
-        success: "成功删除密钥"
+        success: "Key was successfully deleted"
       create:
-        success: "成功新建密钥"
+        success: "Key was successfully created"
 
   error:
     key:
-      not_set: "选项钥设置加密方法及密钥"
+      not_set: "The encryption key is not set in the settings"
