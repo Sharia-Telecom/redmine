@@ -5,7 +5,7 @@ require 'banner_projects_helper_patch'
 
 Redmine::Plugin.register :redmine_banner do
   name 'Redmine Banner plugin'
-  author 'Akiko Takano'
+  author 'Akiko Takano, Modified by Sharia Founder'
   author_url 'http://twitter.com/akiko_pusu'
   description 'Plugin to show site-wide message, such as maintenacne informations or notifications.'
   version '0.1.2'
