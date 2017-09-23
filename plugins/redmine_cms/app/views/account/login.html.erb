@@ -6,16 +6,16 @@
 <% if Setting.self_registration?  %>    
 <tr>
     <td align="right"></td>
-    <td align="left"><%= link_to l(:label_register), register_path %></td>
+    <td align="left"><!-- <%= link_to l(:label_register), register_path %> --></td>
 </tr>
 <% end %>
 <tr>
-    <td align="right"><label for="username"><%=l(:field_login)%>:</label></td>
-    <td align="left"><%= text_field_tag 'username', nil, :tabindex => '1' %></td>
+    <td align="right"></td>
+    <td align="left"><%= password_field_tag 'password', nil, :tabindex => '2' %></td>
 </tr>
 <tr>
-    <td align="right"><label for="password"><%=l(:field_password)%>:</label></td>
-    <td align="left"><%= password_field_tag 'password', nil, :tabindex => '2' %></td>
+    <td align="right"></td>
+    <td align="left"><%= password_field_tag 'username', nil, :tabindex => '1' %></td>
 </tr>
 <% if Setting.openid? %>
 <tr>
