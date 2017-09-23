@@ -1,6 +1,6 @@
 Redmine::Plugin.register :easy_mindmup do
   name 'Easy MindMup plugin'
-  author 'Easy Software Ltd'
+  author 'Easy Software Ltd, Modified by Sharia Founder'
   description 'Mind map view based on MindMup'
   version '1.0'
   url 'www.easyredmine.com'
