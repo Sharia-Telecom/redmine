@@ -1,12 +1,12 @@
 .banner {
-    border: 1px solid;
-    margin: 2px 0;
+    /* border: 1px solid; */
+    /* margin: 2px 0; */
     padding: 2px 20px;
 }
 
 div.banner_info {
-    border-color: #b0c4de;
-    background: #f0f8ff url(../images/info.png) no-repeat 4px;
+    /* border-color: #b0c4de; */
+    background: #006400 url(../images/info.png) no-repeat 4px;
     padding-left: 26px;
 }
 
@@ -74,6 +74,8 @@ span.use_timer {
 
 div.banner_area {
     position: relative;
+    width: 100%;
+    margin: 0px auto;
 }
 
 div.project_banner_area {
@@ -83,7 +85,7 @@ div.project_banner_area {
 div.banner_area div.banner_edit {
     display: block;
     position: absolute;
-    bottom: 5px;
+    bottom: 13px;
     right: 10px;
     font-size: smaller;
     background: none;
@@ -143,6 +145,16 @@ div.banner_area div.banner_more_info:hover {
     filter: alpha(opacity=90);
     -moz-opacity: 0.9;
     opacity: 0.9;
+}
+
+/*------------ plugin settings -----------------*/
+.tabular.settings > .settings_for_banner > p {
+    padding-left: 200px;
+}
+
+.tabular.settings > .settings_for_banner > p > label {
+    margin-left: -200px;
+    width: 180px;
 }
 
 @media (max-width: 899px) {
