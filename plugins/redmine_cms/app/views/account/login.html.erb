@@ -6,7 +6,7 @@
 <% if Setting.self_registration?  %>    
 <tr>
     <td align="right"></td>
-    <td align="left"><%= link_to l(:label_register), register_path %></td>
+    <td align="left"><%= link_to l(:label_register), register_path %> | <% if Setting.lost_password? %><%= link_to l(:label_password_lost), lost_password_path %><% end %></td>
 </tr>
 <% end %>
 <tr>
@@ -32,11 +32,7 @@
     </td>
 </tr>
 <tr>
-    <td align="left">
-        <% if Setting.lost_password? %>
-            <%= link_to l(:label_password_lost), lost_password_path %>
-        <% end %>
-    </td>
+    <td align="left"></td>
     <td align="right">
         <input type="submit" name="login" value="<%=l(:button_login)%> &#187;" tabindex="6"/>
     </td>
