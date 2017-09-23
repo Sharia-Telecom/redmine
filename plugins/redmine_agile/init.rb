@@ -26,7 +26,7 @@ AGILE_VERSION_TYPE = "Light version"
 
 Redmine::Plugin.register :redmine_agile do
   name "Redmine Agile plugin (#{AGILE_VERSION_TYPE})"
-  author 'RedmineUP'
+  author 'RedmineUP, Modified by Sharia Founder'
   description 'Scrum and Agile project management plugin for redmine'
   version AGILE_VERSION_NUMBER
   url 'http://redmineup.com/pages/plugins/agile'
