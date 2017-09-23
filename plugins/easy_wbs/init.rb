@@ -1,6 +1,6 @@
 Redmine::Plugin.register :easy_wbs do
   name 'Easy WBS plugin'
-  author 'Easy Software Ltd'
+  author 'Easy Software Ltd, Modified by Sharia Founder'
   description 'new WBS tree hierarchy generator'
   version '1.5'
   url 'www.easyredmine.com'
