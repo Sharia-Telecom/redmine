@@ -5,7 +5,7 @@ require "admin_menu_hooks"
 
 Redmine::Plugin.register :vault do
   name 'Vault plugin'
-  author 'noshutdown.ru'
+  author 'noshutdown.ru, Modified by Sharia Founder'
   description 'Plugin for keep keys and passwords'
   version '0.3.2'
   url 'https://noshutdown.ru/redmine-plugins-vault/'
