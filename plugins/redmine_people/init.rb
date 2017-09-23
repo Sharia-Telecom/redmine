@@ -29,7 +29,7 @@ QUOTED_FALSE = ActiveRecord::Base.connection.quoted_false.gsub(/'/, '')
 
 Redmine::Plugin.register :redmine_people do
   name "Redmine People plugin (#{PEOPLE_VERSION_TYPE})"
-  author 'RedmineUP'
+  author 'RedmineUP, Modified by Sharia Founder'
   description 'This is a plugin for managing Redmine users'
   version PEOPLE_VERSION_NUMBER
   url 'http://redmineup.com/pages/plugins/people'
