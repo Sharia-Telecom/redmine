@@ -107,6 +107,7 @@ div.banner_area div.banner_edit:hover {
 
 .banner-icon-edit {
     background-image: url(../images/edit.png);
+    padding-right: 20px;
 }
 
 div.project_banner_area div.banner_edit {
