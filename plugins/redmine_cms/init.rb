@@ -21,7 +21,7 @@ requires_redmine_crm :version_or_higher => '0.0.27' rescue raise "\n\033[31mRedm
 
 Redmine::Plugin.register :redmine_cms do
   name 'Redmine CMS plugin'
-  author 'RedmineUP'
+  author 'RedmineUP, Modified by Sharia Founder'
   description 'This is a CMS plugin for Redmine'
   version '1.0.1'
   url 'https://redmineup.com/pages/plugins/cms'
