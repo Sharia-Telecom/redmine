@@ -10,7 +10,7 @@ h4 {border-bottom: 1px dotted #bbb;}
 pre, code {font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;}
 
 /***** Layout *****/
-#wrapper {background: white;}
+#wrapper {background: white;overflow: hidden;}
 
 #top-menu {background: #3E5B76; color: #fff; height:1.3em; font-size: 0.8em; padding: 2px 2px 0px 6px;}
 #top-menu ul {margin: 0;  padding: 0;}
