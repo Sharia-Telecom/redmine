@@ -10,9 +10,9 @@
   display: none;
   position: absolute;
   clear: both;
-  top: 20px;
+  margin-top: 5px;
   border: 1px solid #e4e4e4;
-  background-color: #fff;
+  background-color: #363636;
   color: #505050;
   max-width: 230px;
 }
