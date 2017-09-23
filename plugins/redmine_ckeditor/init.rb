@@ -7,7 +7,7 @@ end
 
 Redmine::Plugin.register :redmine_ckeditor do
   name 'Redmine CKEditor plugin'
-  author 'Akihiro Ono'
+  author 'Akihiro Ono, Modified by Sharia Founder'
   description 'This is a CKEditor plugin for Redmine'
   version '1.1.5'
   requires_redmine :version_or_higher => '3.0.0'
