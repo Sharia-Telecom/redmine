@@ -7,7 +7,7 @@ end
 
 Redmine::Plugin.register :redmine_materials do
   name 'Redmine Materials plugin'
-  author 'Tigergm Wu'
+  author 'Tigergm Wu, Modified by Sharia Founder'
   description 'This is a plugin of materials for Redmine'
   version '0.1.6'
   url 'https://bitbucket.org/39648421/redmine_materials'
