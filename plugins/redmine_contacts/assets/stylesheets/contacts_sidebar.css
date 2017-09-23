@@ -1,4 +1,4 @@
-#sidebar{ float: right; width: 30%; position: relative; z-index: 9; min-height: 600px; padding: 0; margin: 0;}
+#sidebar{ float: right; width: 30%; position: relative; z-index: 9; min-height: 600px; margin: 0;}
 * html #sidebar{ width: 30%; }
 #sidebar hr{ width: 100%; margin: 0 auto; height: 1px; background: #ccc; border: 0; }
 * html #sidebar hr{ width: 95%; position: relative; left: -6px; color: #ccc; }
