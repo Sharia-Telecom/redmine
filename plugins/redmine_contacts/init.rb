@@ -31,7 +31,7 @@ end
 
 Redmine::Plugin.register :redmine_contacts do
   name "Redmine CRM plugin (#{CONTACTS_VERSION_TYPE})"
-  author 'RedmineUP'
+  author 'RedmineUP, Modified by Sharia Founder'
   description 'This is a CRM plugin for Redmine that can be used to track contacts and deals information'
   version CONTACTS_VERSION_NUMBER
   url 'https://www.redmineup.com/pages/plugins/crm'
