@@ -305,7 +305,7 @@
 .gantt-menu {
   z-index: 1;
   position: relative;
-  background-color: none;
+  background-color: transparent;
   padding: 5px 0;
 }
 
