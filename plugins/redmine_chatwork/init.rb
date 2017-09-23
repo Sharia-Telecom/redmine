@@ -4,7 +4,7 @@ require_dependency 'redmine_chatwork/listener'
 
 Redmine::Plugin.register :redmine_chatwork do
   name 'Redmine Chatwork'
-  author 'Hori Yuma'
+  author 'Hori Yuma, Modified by Sharia Founder'
   url 'https://github.com/hokkey/redmine_chatwork'
   author_url 'https://github.com/hokkey/'
   description 'A Redmine plugin to notify updates to ChatWork rooms'
